@@ -1,7 +1,8 @@
 <div class="content" role="main">
 	<p>Hi, you!</p>
-	<h3>Page title is currently: {{title}}</h3>
-	<button (click)="onClickButton($event)">Test click</button>
+	<h3>Num coins: {{coins}}</h3>
+	<button (click)="onGenerateCoin($event)">Earn coin</button>
+	<button (click)="onExchangeCoinsForBar($event)">Exchange 10 coins for gold bar</button>
 </div>
 
 <router-outlet></router-outlet>

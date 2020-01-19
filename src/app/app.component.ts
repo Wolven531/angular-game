@@ -6,9 +6,15 @@ import { Component } from '@angular/core'
 	templateUrl: './app.component.html'
 })
 export class AppComponent {
-	title = 'angular-game'
+	private coins = 0
+	private goldBars = 0
 
-	private onClickButton(evt) {
-		alert('button clicked')
+	private onGenerateCoin(evt) {
+		this.coins += 1
+	}
+
+	private onExchangeCoinsForBar(evt) {
+		this.coins -= 10
+		this.goldBars += 1
 	}
 }
