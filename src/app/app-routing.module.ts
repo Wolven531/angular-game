@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 
+// import { AppComponent } from './app.component'
 
 const routes: Routes = [
-	// { path: '', component: CompASDF }
+	// NOTE: the root doesn't need mapped if there are no others -
+	//   mapping it anyways seems to duplicate `ag-root`
+	// { path: '', component: AppComponent }
 ]
 
 @NgModule({
