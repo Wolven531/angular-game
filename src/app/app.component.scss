@@ -1,7 +1,20 @@
+.container {
+	display: grid;
+	grid-template-areas:
+		"header header header"
+		"  .   content   .   "
+		"footer footer footer";
+	grid-template-columns: 20vw 1fr 20vw;
+	grid-template-rows: 50px 1fr 50px;
+	height: 100%;
+	min-height: 100vh;
+}
+
 .content {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	grid-area: content;
 	margin: 32px auto;
 	max-width: 960px;
 	padding: 0 16px;
