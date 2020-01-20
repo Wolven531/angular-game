@@ -1,11 +1,20 @@
 <article class="container">
+	<section class="header"></section>
+
 	<section class="content" role="main">
 		<p>Hi, you!</p>
 		<h3>Num coins: {{coins}}</h3>
 		<h3 *ngIf="goldBars > 0">Num gold bars: {{goldBars}}</h3>
-		<button (click)="onGenerateCoin($event)">Earn coin</button>
-		<button (click)="onExchangeCoinsForBar($event)">Exchange 10 coins for gold bar</button>
+		<button
+			class="btn-earn-coin"
+			(click)="onGenerateCoin($event)">Earn coin</button>
+		<button
+			class="btn-exchange-coins"
+			[disabled]="coins < 10"
+			(click)="onExchangeCoinsForBar($event)">Exchange 10 coins for gold bar</button>
 	</section>
 
 	<router-outlet></router-outlet>
+
+	<section class="footer"></section>
 </article>
