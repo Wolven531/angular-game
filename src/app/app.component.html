@@ -2,9 +2,9 @@
 	<section class="header"></section>
 
 	<section class="content" role="main">
-		<p>Hi, you!</p>
-		<h3>Num coins: {{coins}}</h3>
-		<h3 *ngIf="goldBars > 0">Num gold bars: {{goldBars}}</h3>
+		<h3 class="coins">Num coins: <span class="value">{{coins}}</span></h3>
+		<h3 *ngIf="goldBars > 0"
+			class="gold">Num gold bars: <span class="value">{{goldBars}}</span></h3>
 		<button
 			class="btn-earn-coin"
 			(click)="onGenerateCoin($event)">Earn coin</button>
