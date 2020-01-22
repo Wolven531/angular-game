@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
-import { WelcomeComponent } from '../welcome/welcome.component'
+import { GameModule } from '../game/game.module'
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @NgModule({
 	declarations: [
@@ -14,7 +15,8 @@ import { WelcomeComponent } from '../welcome/welcome.component'
 	imports: [
 		BrowserModule,
 		FormsModule,
-		AppRoutingModule
+		AppRoutingModule,
+		GameModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
