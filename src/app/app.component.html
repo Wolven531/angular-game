@@ -2,6 +2,7 @@
 	<section class="header"></section>
 
 	<section class="content" role="main">
+		<!--
 		<h3 class="coins">Num coins: <span class="value">{{coins}}</span></h3>
 		<h3 *ngIf="goldBars > 0"
 			class="gold">Num gold bars: <span class="value">{{goldBars}}</span></h3>
@@ -12,9 +13,9 @@
 			class="btn-exchange-coins"
 			[disabled]="coins < 10"
 			(click)="onExchangeCoinsForBar($event)">Exchange 10 coins for gold bar</button>
+		-->
+		<router-outlet></router-outlet>
 	</section>
-
-	<router-outlet></router-outlet>
 
 	<section class="footer"></section>
 </article>
