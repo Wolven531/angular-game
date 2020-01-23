@@ -1,0 +1,46 @@
+.game-container {
+	button {
+		border-radius: 10px;
+		box-shadow: 1px 1px 3px #000;
+		color: #fff;
+		cursor: pointer;
+		margin: 10px;
+		padding: 10px;
+		text-shadow: 1px 1px 3px #000;
+		transition: all;
+		transition-delay: 0ms;
+		transition-duration: 300ms;
+
+		&.btn-earn-coin {
+			background-color: rgba(100,200,0,.75);
+
+			&:hover {
+				background-color: rgba(120,240,0,.9);
+			}
+		}
+
+		&.btn-exchange-coins {
+			background-color: rgba(225,225,0,.75);
+
+			&:hover {
+				background-color: rgba(255,255,0,.9);
+			}
+
+			&[disabled] {
+				background-color: grayscale($color: rgba(225,225,0,.75));
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	h3 {
+		color: #ccc;
+		text-shadow: 1px 1px 3px #000;
+
+		&.coins .value,
+		&.gold .value {
+			color: rgba(255,255,0,.9);
+			font-weight: bold;
+		}
+	}
+}
