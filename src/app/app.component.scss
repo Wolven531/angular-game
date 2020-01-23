@@ -35,9 +35,13 @@
 	}
 
 	.footer {
+		align-items: center;
 		background-color: rgba(80,80,80,.75);
 		box-shadow: 0 -4px 10px #000;
+		color: #fff;
+		display: flex;
 		grid-area: footer;
+		justify-content: center;
 	}
 
 	.header {
