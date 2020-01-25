@@ -16,9 +16,9 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 	imports: [
 		BrowserModule,
 		FormsModule,
-		AppRoutingModule,
 		GameModule,
-		ShopModule
+		ShopModule,
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
