@@ -52,13 +52,14 @@
 				padding: 0;
 
 				li {
-					margin: 0;
-					padding: 0 10px;
+					display: flex;
+					height: 100%;
 
 					a,
 					a:visited,
 					a:hover {
 						color: #fff;
+						padding: 15px 10px;
 						text-decoration: none;
 					}
 				}
