@@ -37,5 +37,25 @@
 		background-color: rgba(80,80,80,.75);
 		box-shadow: 0 4px 10px #000;
 		grid-area: header;
+
+		nav {
+			height: 100%;
+
+			ul {
+				align-items: center;
+				display: flex;
+				flex-direction: row;
+				height: 100%;
+				justify-content: space-between;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					margin: 0;
+					padding: 0 10px;
+				}
+			}
+		}
 	}
 }
