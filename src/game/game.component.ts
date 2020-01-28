@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'ag-game',
-  styleUrls: ['./game.component.scss'],
-  templateUrl: './game.component.html'
+	selector: 'ag-game',
+	styleUrls: ['./game.component.scss'],
+	templateUrl: './game.component.html'
 })
 export class GameComponent {
 	private coins = 0
