@@ -10,7 +10,7 @@ const STARTING_COINS = 0
 const STARTING_GOLD_BARS = 0
 
 @Component({
-	selector: 'ag-game',
+	// selector: 'ag-game',
 	styleUrls: ['./game.component.scss'],
 	templateUrl: './game.component.html'
 })
