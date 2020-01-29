@@ -15,6 +15,8 @@ const STARTING_GOLD_BARS = 0
 	templateUrl: './game.component.html'
 })
 export class GameComponent {
+	// const loadedCoins = parseInt(window.localStorage.getItem('coins'), 10)
+	// const loadedGoldBars = parseInt(window.localStorage.getItem('goldBars'), 10)
 	private coins = STARTING_COINS
 	private goldBars = STARTING_GOLD_BARS
 
@@ -29,9 +31,14 @@ export class GameComponent {
 
 		this.coins -= cost
 		this.goldBars += additionalAmount
+
+		window.localStorage.setItem('coins', String(this.coins))
+		window.localStorage.setItem('goldBars', String(this.goldBars))
 	}
 
 	private onGenerateCoin(evt) {
 		this.coins += EXCHANGE_RATE_COIN
+
+		window.localStorage.setItem('coins', String(this.coins))
 	}
 }
