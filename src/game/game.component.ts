@@ -25,11 +25,15 @@ export class GameComponent implements OnInit {
 		if (isNaN(loadedCoins)) {
 			this.coins = STARTING_COINS
 			window.localStorage.setItem('coins', String(this.coins))
+		} else {
+			this.coins = loadedCoins
 		}
 
 		if (isNaN(loadedGoldBars)) {
 			this.goldBars = STARTING_GOLD_BARS
 			window.localStorage.setItem('goldBars', String(this.goldBars))
+		} else {
+			this.goldBars = loadedGoldBars
 		}
 	}
 
