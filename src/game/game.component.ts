@@ -36,7 +36,7 @@ export class GameComponent implements OnInit {
 
 		if (isNaN(loadedGoldBars)) {
 			this.goldBars = STARTING_GOLD_BARS
-			window.localStorage.setItem('goldBars', String(this.goldBars))
+			this.locStorageService.saveGoldBars(this.goldBars)
 		} else {
 			this.goldBars = loadedGoldBars
 		}
@@ -55,7 +55,7 @@ export class GameComponent implements OnInit {
 		this.goldBars += additionalAmount
 
 		this.locStorageService.saveCoins(this.coins)
-		window.localStorage.setItem('goldBars', String(this.goldBars))
+		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
 	private onGenerateCoin(evt) {
