@@ -29,7 +29,7 @@ export class GameComponent implements OnInit {
 
 		if (isNaN(loadedCoins)) {
 			this.coins = STARTING_COINS
-			window.localStorage.setItem('coins', String(this.coins))
+			this.locStorageService.saveCoins(this.coins)
 		} else {
 			this.coins = loadedCoins
 		}
@@ -54,13 +54,13 @@ export class GameComponent implements OnInit {
 		this.coins -= cost
 		this.goldBars += additionalAmount
 
-		window.localStorage.setItem('coins', String(this.coins))
+		this.locStorageService.saveCoins(this.coins)
 		window.localStorage.setItem('goldBars', String(this.goldBars))
 	}
 
 	private onGenerateCoin(evt) {
 		this.coins += EXCHANGE_RATE_COIN
 
-		window.localStorage.setItem('coins', String(this.coins))
+		this.locStorageService.saveCoins(this.coins)
 	}
 }

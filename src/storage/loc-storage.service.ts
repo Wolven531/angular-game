@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core'
 export class LocStorageService {
 
 	constructor() { }
+
+	public saveCoins(coins: number) {
+		window.localStorage.setItem('coins', String(coins))
+	}
 }
