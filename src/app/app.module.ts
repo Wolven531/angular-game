@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { GameModule } from '../game/game.module'
 import { ShopModule } from '../shop/shop.module'
+import { StorageModule } from '../storage/storage.module'
 import { WelcomeComponent } from '../welcome/welcome.component'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component'
 	imports: [
 		BrowserModule,
 		FormsModule,
+		StorageModule,
 		GameModule,
 		ShopModule,
 		AppRoutingModule
