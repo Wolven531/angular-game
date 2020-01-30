@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
+import { LocStorageService } from '../storage/loc-storage.service'
+
 // NOTE: rate vs. click - value of 1 equals "1 to 1"; this means
 // means one click generates one coin
 const EXCHANGE_RATE_COIN = 1
@@ -17,6 +19,9 @@ const STARTING_GOLD_BARS = 0
 export class GameComponent implements OnInit {
 	private coins = 0
 	private goldBars = 0
+
+	constructor(private locStorageService: LocStorageService) {
+	}
 
 	public ngOnInit() {
 		const loadedCoins = parseInt(window.localStorage.getItem('coins'), 10)
