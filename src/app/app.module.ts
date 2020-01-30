@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { GameModule } from '../game/game.module'
 import { ShopModule } from '../shop/shop.module'
-import { StorageModule } from '../storage/storage.module'
+import { LocStorageService } from '../storage/loc-storage.service'
+// import { StorageModule } from '../storage/storage.module'
 import { WelcomeComponent } from '../welcome/welcome.component'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -19,11 +20,13 @@ import { AppComponent } from './app.component'
 	imports: [
 		BrowserModule,
 		FormsModule,
-		StorageModule,
+		// StorageModule,
 		GameModule,
 		ShopModule,
 		AppRoutingModule
 	],
-	providers: []
+	providers: [
+		LocStorageService
+	]
 })
 export class AppModule { }
