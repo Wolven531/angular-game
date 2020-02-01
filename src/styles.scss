@@ -2,4 +2,35 @@
 body {
 	margin: 0;
 	padding: 0;
+
+	button {
+		border-radius: 10px;
+		box-shadow: 1px 1px 3px #000;
+		color: #fff;
+		cursor: pointer;
+		margin: 10px;
+		padding: 10px;
+		text-shadow: 1px 1px 3px #000;
+		transition: all;
+		transition-delay: 0ms;
+		transition-duration: 300ms;
+
+		&[disabled] {
+			cursor: not-allowed;
+		}
+	}
+
+	h3 {
+		color: #ccc;
+		text-shadow: 1px 1px 3px #000;
+
+		&.coins .value,
+		&.gold .value {
+			color: rgba(255,255,0,.9);
+		}
+
+		.value {
+			font-weight: bold;
+		}
+	}
 }
