@@ -4,6 +4,13 @@ import { Injectable } from '@angular/core'
 	providedIn: 'root'
 })
 export class LocStorageService {
+	// NOTE: rate vs. click - value of 1 equals "1 to 1"; this means
+	// means one click generates one coin
+	public static EXCHANGE_RATE_COIN = 1
+	// NOTE: rate vs. coins - value of .1 equals "1 to 10"; this means
+	// means one gold bar exchanges for ten coins
+	public static EXCHANGE_RATE_GOLD_BAR = .1
+
 	public static STARTING_COINS = 0
 	public static STARTING_GOLD_BARS = 0
 

@@ -1,3 +1,53 @@
 .shop-container {
 	color: #fff;
+
+	button {
+		border-radius: 10px;
+		box-shadow: 1px 1px 3px #000;
+		color: #fff;
+		cursor: pointer;
+		margin: 10px;
+		padding: 10px;
+		text-shadow: 1px 1px 3px #000;
+		transition: all;
+		transition-delay: 0ms;
+		transition-duration: 300ms;
+
+		&.btn-exchange-coins {
+			background-color: rgba(225,225,0,.75);
+
+			&:hover {
+				background-color: rgba(255,255,0,.9);
+			}
+
+			&[disabled] {
+				background-color: grayscale($color: rgba(225,225,0,.75));
+				cursor: not-allowed;
+			}
+		}
+
+		&.btn-exchange-bars {
+			background-color: rgba(0,225,225,.75);
+
+			&:hover {
+				background-color: rgba(0,255,255,.9);
+			}
+
+			&[disabled] {
+				background-color: grayscale($color: rgba(0,225,225,.75));
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	h3 {
+		color: #ccc;
+		text-shadow: 1px 1px 3px #000;
+
+		&.coins .value,
+		&.gold .value {
+			color: rgba(255,255,0,.9);
+			font-weight: bold;
+		}
+	}
 }
