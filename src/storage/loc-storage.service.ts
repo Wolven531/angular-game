@@ -17,6 +17,14 @@ export class LocStorageService {
 			: loadedCoins
 	}
 
+	public loadGoldBars(): number {
+		const loadedGoldBars = parseInt(window.localStorage.getItem('goldBars'), 10)
+
+		return isNaN(loadedGoldBars)
+			? LocStorageService.STARTING_GOLD_BARS
+			: loadedGoldBars
+	}
+
 	public saveCoins(coins: number) {
 		window.localStorage.setItem('coins', String(coins))
 	}
