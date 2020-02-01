@@ -8,7 +8,6 @@ const EXCHANGE_RATE_COIN = 1
 // NOTE: rate vs. coins - value of .1 equals "1 to 10"; this means
 // means one gold bar exchanges for ten coins
 const EXCHANGE_RATE_GOLD_BAR = .1
-const STARTING_COINS = 0
 const STARTING_GOLD_BARS = 0
 
 @Component({
@@ -24,15 +23,9 @@ export class GameComponent implements OnInit {
 	}
 
 	public ngOnInit() {
-		const loadedCoins = parseInt(window.localStorage.getItem('coins'), 10)
-		const loadedGoldBars = parseInt(window.localStorage.getItem('goldBars'), 10)
+		this.coins = this.locStorageService.loadCoins()
 
-		if (isNaN(loadedCoins)) {
-			this.coins = STARTING_COINS
-			this.locStorageService.saveCoins(this.coins)
-		} else {
-			this.coins = loadedCoins
-		}
+		const loadedGoldBars = parseInt(window.localStorage.getItem('goldBars'), 10)
 
 		if (isNaN(loadedGoldBars)) {
 			this.goldBars = STARTING_GOLD_BARS
