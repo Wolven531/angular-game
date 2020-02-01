@@ -31,6 +31,19 @@
 				cursor: not-allowed;
 			}
 		}
+
+		&.btn-exchange-bars {
+			background-color: rgba(0,225,225,.75);
+
+			&:hover {
+				background-color: rgba(0,255,255,.9);
+			}
+
+			&[disabled] {
+				background-color: grayscale($color: rgba(0,225,225,.75));
+				cursor: not-allowed;
+			}
+		}
 	}
 
 	h3 {

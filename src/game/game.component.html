@@ -9,4 +9,8 @@
 		class="btn-exchange-coins"
 		[disabled]="coins < 10"
 		(click)="onExchangeCoinsForBar($event)">Exchange 10 coins for gold bar</button>
+	<button
+		class="btn-exchange-bars"
+		[disabled]="goldBars < 1"
+		(click)="onExchangeBarForCoins($event)">Exchange 1 gold bar for 10 coins</button>
 </div>
