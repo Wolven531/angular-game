@@ -26,6 +26,22 @@ export class GameComponent implements OnInit {
 		this.goldBars = this.locStorageService.loadGoldBars()
 	}
 
+	private onExchangeBarForCoins(evt) {
+		const refund = Math.round(1 / EXCHANGE_RATE_GOLD_BAR)
+		const removalAmount = Math.round(refund * EXCHANGE_RATE_GOLD_BAR)
+
+		if (this.goldBars < 1) {
+			alert('Insufficient gold bars, need at least 1')
+			return
+		}
+
+		this.coins += refund
+		this.goldBars -= removalAmount
+
+		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveGoldBars(this.goldBars)
+	}
+
 	private onExchangeCoinsForBar(evt) {
 		const cost = Math.round(1 / EXCHANGE_RATE_GOLD_BAR)
 		const additionalAmount = Math.round(cost * EXCHANGE_RATE_GOLD_BAR)
