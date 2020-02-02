@@ -7,4 +7,21 @@
 		class="btn-summon-minion"
 		[disabled]="coins < 10"
 		(click)="onSummonMinion($event)">Summon minion for 10 coins</button>
+	<div *ngIf="minions.length > 0">
+		<h3>Minions</h3>
+		<div *ngFor="let minion of minions; index as i">
+			<dl>
+				<dt>#</dt>
+				<dd>{{i + 1}}</dd>
+				<dt>Hitpoints</dt>
+				<dd>{{minion.hp}}</dd>
+				<dt>Attack</dt>
+				<dd>{{minion.attack}}</dd>
+				<dt>Defense</dt>
+				<dd>{{minion.defense}}</dd>
+				<dt>Damage Taken</dt>
+				<dd>{{minion.damageTaken}}</dd>
+			</dl>
+		</div>
+	</div>
 </div>
