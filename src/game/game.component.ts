@@ -22,4 +22,8 @@ export class GameComponent implements OnInit {
 
 		this.locStorageService.saveCoins(this.coins)
 	}
+
+	private onSummonMinion() {
+		
+	}
 }

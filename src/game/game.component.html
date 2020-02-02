@@ -3,4 +3,8 @@
 	<button
 		class="btn-earn-coin"
 		(click)="onGenerateCoin($event)">Earn coin</button>
+	<button
+		class="btn-summon-minion"
+		[disabled]="coins < 10"
+		(click)="onSummonMinion($event)">Summon minion for 10 coins</button>
 </div>
