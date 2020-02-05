@@ -49,6 +49,13 @@ describe('AppComponent', () => {
 
 			expect(content.tagName).toBe('SECTION')
 		})
+
+		it('renders footer w/ copyright', () => {
+			const compiled: HTMLElement = fixture.debugElement.nativeElement
+			const footer = compiled.querySelector('.container > .footer')
+
+			expect(footer.textContent).toBe('© Anthony Williams 2020')
+		})
 	})
 
 	// it(`should have as title 'angular-game'`, () => {
