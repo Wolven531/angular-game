@@ -6,4 +6,18 @@
 			background-color: rgba(120,240,0,.9);
 		}
 	}
+
+	button.btn-summon-minion {
+		background-color: rgba(225,0,0,.75);
+
+		&:hover {
+			background-color: rgba(255,0,0,.9);
+		}
+	}
+
+	.minion-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 }

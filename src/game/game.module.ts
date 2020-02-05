@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
 import { GameComponent } from './game.component'
+import { MinionComponent } from './minion.component'
 
 const routes = [
 	{ path: 'game', component: GameComponent }
@@ -10,7 +11,8 @@ const routes = [
 
 @NgModule({
 	declarations: [
-		GameComponent
+		GameComponent,
+		MinionComponent
 	],
 	exports: [
 		GameComponent
