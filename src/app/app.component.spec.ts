@@ -42,6 +42,13 @@ describe('AppComponent', () => {
 			expect(navLinks.item(1).textContent).toBe('Game')
 			expect(navLinks.item(2).textContent).toBe('Shop')
 		})
+
+		it('renders content', () => {
+			const compiled: HTMLElement = fixture.debugElement.nativeElement
+			const content = compiled.querySelector('.container > .content')
+
+			expect(content.tagName).toBe('SECTION')
+		})
 	})
 
 	// it(`should have as title 'angular-game'`, () => {
