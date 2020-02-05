@@ -22,10 +22,12 @@ describe('AppComponent', () => {
 	)
 
 	describe('when created', () => {
+		let compiled: HTMLElement
 		let fixture: ComponentFixture<AppComponent>
 
 		beforeEach(() => {
 			fixture = TestBed.createComponent(AppComponent)
+			compiled = fixture.debugElement.nativeElement
 		})
 
 		it('creates app component', () => {
@@ -34,7 +36,6 @@ describe('AppComponent', () => {
 
 		it('renders header w/ 3 nav links', () => {
 			// fixture.detectChanges() // NOTE: only call when component changes the HTML (e.g. interpolation)
-			const compiled: HTMLElement = fixture.debugElement.nativeElement
 			const navLinks = compiled.querySelectorAll('.container > .header > nav li')
 
 			expect(navLinks.length).toBe(3)
@@ -44,14 +45,12 @@ describe('AppComponent', () => {
 		})
 
 		it('renders content', () => {
-			const compiled: HTMLElement = fixture.debugElement.nativeElement
 			const content = compiled.querySelector('.container > .content')
 
 			expect(content.tagName).toBe('SECTION')
 		})
 
 		it('renders footer w/ copyright', () => {
-			const compiled: HTMLElement = fixture.debugElement.nativeElement
 			const footer = compiled.querySelector('.container > .footer')
 
 			expect(footer.textContent).toBe('© Anthony Williams 2020')
