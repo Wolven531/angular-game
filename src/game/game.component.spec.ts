@@ -1,25 +1,26 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { GameComponent } from './game.component';
+import { GameComponent } from './game.component'
 
-// describe('GameComponent', () => {
-//   let component: GameComponent;
-//   let fixture: ComponentFixture<GameComponent>;
+describe('GameComponent', () => {
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ GameComponent ]
+		})
+		.compileComponents()
+	}))
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ GameComponent ]
-//     })
-//     .compileComponents();
-//   }));
+	describe('when created', () => {
+		let compiled: HTMLElement
+		let fixture: ComponentFixture<GameComponent>
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(GameComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+		beforeEach(() => {
+			fixture = TestBed.createComponent(GameComponent)
+			compiled = fixture.debugElement.nativeElement
+		})
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+		it('creates game component', () => {
+			expect(fixture.debugElement.componentInstance).toBeTruthy()
+		})
+	 })
+})
