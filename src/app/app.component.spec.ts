@@ -7,14 +7,19 @@ import {
 import { Router } from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
 
-import { routes as appRoutes } from './app-routing.module'
 import { routes as gameRoutes } from '../game/game.module'
 import { routes as shopRoutes } from '../shop/shop.module'
+import { routes as appRoutes } from './app-routing.module'
 
-import { AppComponent } from './app.component'
 import { GameComponent } from '../game/game.component'
 import { ShopComponent } from '../shop/shop.component'
 import { WelcomeComponent } from '../welcome/welcome.component'
+import { AppComponent } from './app.component'
+
+const URL_BLANK = ''
+const URL_GAME = 'game'
+const URL_SHOP = 'shop'
+const URL_WELCOME = 'welcome'
 
 describe('AppComponent w/ Routing', () => {
 	let location: Location
@@ -31,7 +36,7 @@ describe('AppComponent w/ Routing', () => {
 				],
 				imports: [
 					RouterTestingModule.withRoutes(
-						// appRoutes must come last due to wildcard
+						// appRoutes must come last due to wildcard route
 						gameRoutes
 							.concat(shopRoutes)
 							.concat(appRoutes)
@@ -45,17 +50,11 @@ describe('AppComponent w/ Routing', () => {
 	)
 
 	describe('when created and initialNavigation() is invoked', () => {
-		const URL_BLANK = ''
-		const URL_GAME = 'game'
-		const URL_SHOP = 'shop'
-		const URL_WELCOME = 'welcome'
-		let compiled: HTMLElement
 		let fixture: ComponentFixture<AppComponent>
 
 		beforeEach(() => {
 			fixture = TestBed.createComponent(AppComponent)
 			router.initialNavigation()
-			compiled = fixture.debugElement.nativeElement
 		})
 
 		it('creates app component and navigates to ""', () => {
