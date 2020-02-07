@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 
 import { ShopComponent } from './shop.component'
 
-const routes = [
+export const routes: Routes = [
 	{ path: 'shop', component: ShopComponent }
 ]
 
