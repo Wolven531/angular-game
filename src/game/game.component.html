@@ -10,8 +10,10 @@
 	<h3 *ngIf="minions.length > 0">Minions</h3>
 	<div *ngIf="minions.length > 0" class="minion-container">
 		<div *ngFor="let minion of minions; index as i">
-			<ag-minion [minion]="minion">
-			</ag-minion>
+			<!--
+				<ag-minion [minion]="minion">
+				</ag-minion>
+			-->
 		</div>
 	</div>
 </div>
