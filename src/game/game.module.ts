@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 
 import { GameComponent } from './game.component'
 import { MinionComponent } from './minion.component'
 
-const routes = [
+export const routes: Routes = [
 	{ path: 'game', component: GameComponent }
 ]
 
