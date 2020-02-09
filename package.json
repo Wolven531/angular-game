@@ -19,7 +19,7 @@
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test"
   },
-  "version": "0.5.0",
+  "version": "0.6.0",
   "dependencies": {
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
@@ -52,6 +52,7 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "protractor": "~5.4.0",
+    "puppeteer": "^2.1.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
