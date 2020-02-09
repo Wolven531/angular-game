@@ -1,15 +1,25 @@
 {
-  "name": "angular-game",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve --open",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+  "author": {
+    "email": "anthony.williams.cs@gmail.com",
+    "name": "Anthony Williams",
+    "url": "https://github.com/Wolven531/angular-game.git"
   },
+  "name": "angular-game",
   "private": true,
+  "scripts": {
+    "build": "ng build",
+    "build:ci": "npm run clean && npm run test && npm run build:prod",
+    "build:prod": "ng build --prod",
+    "clean": "rimraf ./dist",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve",
+    "start:open": "ng serve --open",
+    "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "test:watch": "ng test"
+  },
+  "version": "0.5.0",
   "dependencies": {
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
@@ -19,6 +29,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "rimraf": "^3.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
