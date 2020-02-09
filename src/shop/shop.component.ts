@@ -8,15 +8,15 @@ import { LocStorageService } from '../storage/loc-storage.service'
 	templateUrl: './shop.component.html'
 })
 export class ShopComponent implements OnInit {
-	private coins = 0
-	private goldBars = 0
+	public coins = 0
+	public goldBars = 0
 
 	public ngOnInit() {
 		this.coins = this.locStorageService.loadCoins()
 		this.goldBars = this.locStorageService.loadGoldBars()
 	}
 
-	private onExchangeBarForCoins(evt) {
+	public onExchangeBarForCoins(evt) {
 		const refund = Math.round(1 / LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 		const removalAmount = Math.round(refund * LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 
@@ -32,7 +32,7 @@ export class ShopComponent implements OnInit {
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
-	private onExchangeCoinsForBar(evt) {
+	public onExchangeCoinsForBar(evt) {
 		const cost = Math.round(1 / LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 		const additionalAmount = Math.round(cost * LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 

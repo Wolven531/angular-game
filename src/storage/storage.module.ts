@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core'
 
-import { LocStorageService } from './loc-storage.service'
+// import { LocStorageService } from './loc-storage.service'
 
 @NgModule({
 	declarations: [
-		LocStorageService
+		// LocStorageService
 	],
 	exports: [
-		LocStorageService
+		// LocStorageService
 	],
 	imports: [],
 	providers: []

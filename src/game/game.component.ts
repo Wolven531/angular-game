@@ -8,8 +8,8 @@ import { LocStorageService } from '../storage/loc-storage.service'
 	templateUrl: './game.component.html'
 })
 export class GameComponent implements OnInit {
-	private coins = 0
-	private minions = []
+	public coins = 0
+	public minions = []
 
 	constructor(private locStorageService: LocStorageService) {
 	}
@@ -18,13 +18,13 @@ export class GameComponent implements OnInit {
 		this.coins = this.locStorageService.loadCoins()
 	}
 
-	private onGenerateCoin(evt) {
+	public onGenerateCoin(evt) {
 		this.coins += LocStorageService.EXCHANGE_RATE_COIN
 
 		this.locStorageService.saveCoins(this.coins)
 	}
 
-	private onSummonMinion() {
+	public onSummonMinion() {
 		const maxAttack = 10
 		const maxDefense = 3
 		const maxHitpoints = 5
