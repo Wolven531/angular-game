@@ -5,7 +5,7 @@ module.exports = function (config) {
 	config.set({
 		autoWatch: true,
 		basePath: '',
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 		client: {
 			clearContext: false // leave Jasmine Spec Runner output visible in browser
 		},
@@ -17,19 +17,19 @@ module.exports = function (config) {
 		},
 		customLaunchers: {
 			ChromeHeadlessCustom: {
-			  base: 'ChromeHeadless',
-			  flags: ['--no-sandbox', '--disable-gpu']
+				base: 'ChromeHeadless',
+				flags: ['--no-sandbox', '--disable-gpu']
 			}
 		},
 		frameworks: ['jasmine', '@angular-devkit/build-angular'],
 		logLevel: config.LOG_INFO,
-		phantomjsLauncher: {
-			// Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-			exitOnResourceError: true
-		},
+		// phantomjsLauncher: {
+		// 	// Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+		// 	exitOnResourceError: true
+		// },
 		plugins: [
 			require('karma-jasmine'),
-			// require('karma-chrome-launcher'),
+			require('karma-chrome-launcher'),
 			require('karma-phantomjs-launcher'),
 			require('karma-jasmine-html-reporter'),
 			require('karma-coverage-istanbul-reporter'),
