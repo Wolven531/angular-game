@@ -15,6 +15,12 @@ module.exports = function (config) {
 			fixWebpackSourcePaths: true,
 			reports: ['html', 'lcovonly', 'text-summary']
 		},
+		customLaunchers: {
+			ChromeHeadlessCustom: {
+			  base: 'ChromeHeadless',
+			  flags: ['--no-sandbox', '--disable-gpu']
+			}
+		},
 		frameworks: ['jasmine', '@angular-devkit/build-angular'],
 		logLevel: config.LOG_INFO,
 		phantomjsLauncher: {
