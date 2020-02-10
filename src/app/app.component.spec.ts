@@ -12,6 +12,7 @@ import { routes as shopRoutes } from '../shop/shop.module'
 import { routes as appRoutes } from './app-routing.module'
 
 import { GameComponent } from '../game/game.component'
+import { ItemListComponent } from '../shop/item-list/item-list.component'
 import { ShopComponent } from '../shop/shop.component'
 import { WelcomeComponent } from '../welcome/welcome.component'
 import { AppComponent } from './app.component'
@@ -30,6 +31,7 @@ describe('AppComponent w/ Routing', () => {
 			TestBed.configureTestingModule({
 				declarations: [
 					GameComponent,
+					ItemListComponent,
 					ShopComponent,
 					WelcomeComponent,
 					AppComponent

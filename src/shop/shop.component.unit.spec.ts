@@ -4,13 +4,17 @@ import {
 	TestBed
 } from '@angular/core/testing'
 
+import { ItemListComponent } from './item-list/item-list.component'
 import { ShopComponent } from './shop.component'
 
 describe('ShopComponent', () => {
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
-				declarations: [ ShopComponent ]
+				declarations: [
+					ItemListComponent,
+					ShopComponent
+				]
 			})
 			.compileComponents();
 		})
