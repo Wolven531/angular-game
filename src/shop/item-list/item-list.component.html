@@ -1,1 +1,13 @@
-<p>item-list works!</p>
+<article class="item-list-container">
+	<ul>
+		<li>
+			<div class="item-list-item">
+				<h4>Soldiers ({{numSoldiers}})</h4>
+				<button
+					class="btn-purchase-soldier"
+					[disabled]="goldBars < 5"
+					(click)="onPurchaseSoldier()">Buy 1 Soldier for 5 Gold Bars</button>
+			</div>
+		</li>
+	</ul>
+</article>

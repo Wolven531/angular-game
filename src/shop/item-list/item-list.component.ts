@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core'
 	styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent implements OnInit {
+	goldBars = 0
+	numSoldiers = 0
+
 	constructor() {
 
 	}
 
 	ngOnInit() {
+	}
+
+	onPurchaseSoldier() {
 	}
 }
