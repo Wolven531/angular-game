@@ -8,12 +8,15 @@ import { Router } from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
 
 import { routes as gameRoutes } from '../game/game.module'
-import { routes as shopRoutes } from '../shop/shop.module'
+import {
+	// routes as shopRoutes,
+	ShopModule
+} from '../shop/shop.module'
 import { routes as appRoutes } from './app-routing.module'
 
 import { GameComponent } from '../game/game.component'
-import { ItemListComponent } from '../shop/item-list/item-list.component'
-import { ShopComponent } from '../shop/shop.component'
+// import { ItemListComponent } from '../shop/item-list/item-list.component'
+// import { ShopComponent } from '../shop/shop.component'
 import { WelcomeComponent } from '../welcome/welcome.component'
 import { AppComponent } from './app.component'
 
@@ -31,16 +34,18 @@ describe('AppComponent w/ Routing', () => {
 			TestBed.configureTestingModule({
 				declarations: [
 					GameComponent,
-					ItemListComponent,
-					ShopComponent,
+					// ItemListComponent,
+					// ShopComponent,
 					WelcomeComponent,
 					AppComponent
 				],
 				imports: [
+					// TODO: research - is it bad practice to import whole modules during unit testing
+					ShopModule,
 					RouterTestingModule.withRoutes(
 						// appRoutes must come last due to wildcard route
 						gameRoutes
-							.concat(shopRoutes)
+							// .concat(shopRoutes)
 							.concat(appRoutes)
 					)
 				]
