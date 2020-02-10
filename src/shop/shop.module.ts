@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
+import { ItemListComponent } from './item-list/item-list.component'
 import { ShopComponent } from './shop.component'
 
 export const routes: Routes = [
@@ -10,6 +11,7 @@ export const routes: Routes = [
 
 @NgModule({
 	declarations: [
+		ItemListComponent,
 		ShopComponent
 	],
 	exports: [
