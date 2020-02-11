@@ -1,4 +1,4 @@
-name: Node.js + PhantomJS CI / CD
+name: Node.js + Puppeteer CI / CD
 
 on: [push]
 
