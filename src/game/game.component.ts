@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { LocStorageService } from '../storage/loc-storage.service'
+import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
 	// selector: 'ag-game',
