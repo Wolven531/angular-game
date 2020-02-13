@@ -13,6 +13,7 @@ export class LocStorageService {
 
 	public static STARTING_COINS = 0
 	public static STARTING_GOLD_BARS = 0
+	public static STARTING_NUM_SOLDIERS = 0
 
 	constructor() { }
 
@@ -32,11 +33,23 @@ export class LocStorageService {
 			: loadedGoldBars
 	}
 
+	public loadNumSoldiers(): number {
+		const loadedNumSoldiers = parseInt(window.localStorage.getItem('numSoldiers'), 10)
+
+		return isNaN(loadedNumSoldiers)
+			? LocStorageService.STARTING_NUM_SOLDIERS
+			: loadedNumSoldiers
+	}
+
 	public saveCoins(coins: number) {
 		window.localStorage.setItem('coins', String(coins))
 	}
 
 	public saveGoldBars(goldBars: number) {
 		window.localStorage.setItem('goldBars', String(goldBars))
+	}
+
+	public saveNumSoldiers(numSoldiers: number) {
+		window.localStorage.setItem('numSoldiers', String(numSoldiers))
 	}
 }
