@@ -13,6 +13,7 @@ export class ItemListComponent implements OnInit {
 
 	ngOnInit() {
 		this.goldBars = this.locStorageService.loadGoldBars()
+		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
 	onPurchaseSoldier() {
@@ -24,6 +25,7 @@ export class ItemListComponent implements OnInit {
 		this.numSoldiers += 1
 
 		this.locStorageService.saveGoldBars(this.goldBars)
+		this.locStorageService.saveNumSoldiers(this.numSoldiers)
 	}
 
 	constructor(private locStorageService: LocStorageService) {}
