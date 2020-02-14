@@ -36,7 +36,7 @@ describe('ShopComponent', () => {
 		it('renders headers', () => {
 			expect(compiled.querySelector('.shop-container > h3:nth-of-type(1)').textContent).toBe('Shop')
 			expect(compiled.querySelector('.shop-container > h3.coins').textContent).toBe('Num coins: ')
-			expect(compiled.querySelector('.shop-container > h3.gold')).toBeNull()
+			expect(compiled.querySelector('.shop-container > h3.gold').textContent).toBe('Num gold bars: ')
 		})
 
 		it('renders buttons', () => {
@@ -55,13 +55,11 @@ describe('ShopComponent', () => {
 				fixture.detectChanges()
 			})
 
-			it('hides conditional header', () => {
-				expect(compiled.querySelector('.shop-container > h3.gold')).toBeNull()
-			})
-
 			it('renders hydrated header (w/ value)', () => {
 				expect(compiled.querySelector('.shop-container > h3.coins').textContent).toBe('Num coins: 0')
 				expect(compiled.querySelector('.shop-container > h3.coins > .value').textContent).toBe('0')
+				expect(compiled.querySelector('.shop-container > h3.gold').textContent).toBe('Num gold bars: 0')
+				expect(compiled.querySelector('.shop-container > h3.gold > .value').textContent).toBe('0')
 			})
 
 			it('renders hydrated buttons (w/ possible disabled attribute)', () => {
