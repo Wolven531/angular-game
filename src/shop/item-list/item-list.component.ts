@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core'
+import {
+	Component,
+	Input,
+	OnInit,
+	Output,
+	EventEmitter
+} from '@angular/core'
 
 import { LocStorageService } from '@services/loc-storage.service'
 
@@ -10,6 +16,9 @@ import { LocStorageService } from '@services/loc-storage.service'
 export class ItemListComponent implements OnInit {
 	@Input()
 	goldBars: number
+	@Output()
+	onGoldBarsChanged = new EventEmitter()
+
 	numSoldiers = 0
 
 	ngOnInit() {
@@ -24,7 +33,7 @@ export class ItemListComponent implements OnInit {
 		this.goldBars -= 5
 		this.numSoldiers += 1
 
-		this.locStorageService.saveGoldBars(this.goldBars)
+		this.onGoldBarsChanged.emit(this.goldBars)
 		this.locStorageService.saveNumSoldiers(this.numSoldiers)
 	}
 
