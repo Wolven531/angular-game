@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 
 import { LocStorageService } from '@services/loc-storage.service'
 
@@ -8,11 +8,11 @@ import { LocStorageService } from '@services/loc-storage.service'
 	templateUrl: './item-list.component.html'
 })
 export class ItemListComponent implements OnInit {
-	goldBars = 0
+	@Input()
+	goldBars: number
 	numSoldiers = 0
 
 	ngOnInit() {
-		this.goldBars = this.locStorageService.loadGoldBars()
 		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
