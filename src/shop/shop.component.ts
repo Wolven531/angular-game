@@ -48,6 +48,11 @@ export class ShopComponent implements OnInit {
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
+	public onGoldBarsChanged(newGoldBars) {
+		this.goldBars = newGoldBars
+		this.locStorageService.saveGoldBars(this.goldBars)
+	}
+
 	constructor(private locStorageService: LocStorageService) {
 	}
 }

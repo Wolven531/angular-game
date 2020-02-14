@@ -11,5 +11,7 @@
 		class="btn-exchange-bars"
 		[disabled]="goldBars < 1"
 		(click)="onExchangeBarForCoins($event)">Exchange 1 gold bar for 10 coins</button>
-	<ag-item-list [goldBars]="goldBars"></ag-item-list>
+	<ag-item-list
+		[goldBars]="goldBars"
+		(onGoldBarsChanged)="onGoldBarsChanged($event)"></ag-item-list>
 </div>
