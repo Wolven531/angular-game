@@ -1,5 +1,7 @@
 # AngularGame
 
+![Node.js + Puppeteer CI / CD](https://github.com/Wolven531/angular-game/workflows/Node.js%20+%20Puppeteer%20CI%20/%20CD/badge.svg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server
