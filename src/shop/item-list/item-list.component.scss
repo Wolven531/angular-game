@@ -1,14 +1,18 @@
 .item-list-container {
 	button {
 		&.btn-purchase-soldier {
-			background-color: rgba(150,85,0,.75);
+			/* CSS variable, does not work w/ grayscale() */
+			/* --bg-color: rgba(150,85,0,.75); */
+			/* background-color: var(--bg-color); */
+			$bg-color: rgba(150,85,0,.75);
+			background-color: $bg-color;
 
 			&:hover {
-				background-color: rgba(170,105,20,.9);
+				background-color: lighten($bg-color, 10%);
 			}
 
 			&[disabled] {
-				background-color: grayscale($color: rgba(150,85,0,.75));
+				background-color: grayscale($bg-color);
 			}
 		}
 	}
