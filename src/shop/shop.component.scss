@@ -3,26 +3,28 @@
 
 	button {
 		&.btn-exchange-coins {
-			background-color: rgba(225,225,0,.75);
+			$bg-color: rgba(225,225,0,.75);
+			background-color: $bg-color;
 
 			&:hover {
-				background-color: rgba(255,255,0,.9);
+				background-color: lighten($bg-color, 15%);
 			}
 
 			&[disabled] {
-				background-color: grayscale($color: rgba(225,225,0,.75));
+				background-color: grayscale($bg-color);
 			}
 		}
 
 		&.btn-exchange-bars {
-			background-color: rgba(0,225,225,.75);
+			$bg-color: rgba(0,225,225,.75);
+			background-color: $bg-color;
 
 			&:hover {
-				background-color: rgba(0,255,255,.9);
+				background-color: lighten($bg-color, 15%);
 			}
 
 			&[disabled] {
-				background-color: grayscale($color: rgba(0,225,225,.75));
+				background-color: grayscale($bg-color);
 			}
 		}
 	}

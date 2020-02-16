@@ -1,17 +1,19 @@
 .game-container {
 	button.btn-earn-coin {
-		background-color: rgba(100,200,0,.75);
+		$bg-color: rgba(100,200,0,.75);
+		background-color: $bg-color;
 
 		&:hover {
-			background-color: rgba(120,240,0,.9);
+			background-color: lighten($bg-color, 15%);
 		}
 	}
 
 	button.btn-summon-minion {
-		background-color: rgba(225,0,0,.75);
+		$bg-color: rgba(225,0,0,.75);
+		background-color: $bg-color;
 
 		&:hover {
-			background-color: rgba(255,0,0,.9);
+			background-color: lighten($bg-color, 15%);
 		}
 	}
 
