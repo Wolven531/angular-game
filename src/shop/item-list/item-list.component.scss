@@ -1,0 +1,26 @@
+.item-list-container {
+	button {
+		&.btn-purchase-soldier {
+			background-color: rgba(150,85,0,.75);
+
+			&:hover {
+				background-color: rgba(170,105,20,.9);
+			}
+
+			&[disabled] {
+				background-color: grayscale($color: rgba(150,85,0,.75));
+			}
+		}
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		margin-block-end: 0;
+		margin-block-start: 0;
+		margin-inline-end: 0;
+		margin-inline-start: 0;
+		padding: 0;
+		padding-inline-start: 0;
+	}
+}
