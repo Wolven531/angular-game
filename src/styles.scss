@@ -24,12 +24,8 @@ body {
 		color: #ccc;
 		text-shadow: 1px 1px 3px #000;
 
-		&.coins .value,
-		&.gold .value {
-			color: rgba(255,255,0,.9);
-		}
-
 		.value {
+			color: rgba(255,255,0,.9);
 			font-weight: bold;
 		}
 	}
