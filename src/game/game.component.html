@@ -5,7 +5,7 @@
 		(click)="onGenerateCoin($event)">Earn coin</button>
 	<button
 		class="btn-summon-minion"
-		[disabled]="coins < 10"
+		[disabled]="true || coins < 10"
 		(click)="onSummonMinion()">Summon minion for 10 coins</button>
 	<!--
 	<h3 *ngIf="minions.length > 0">Minions</h3>
