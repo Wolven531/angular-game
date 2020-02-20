@@ -2,14 +2,14 @@ import { Location } from '@angular/common'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { Router } from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
-import {
-	// routes as shopRoutes,
-	ShopModule
-} from '../shop/shop.module'
 import { routes as appRoutes } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { GameComponent } from './game/game.component'
 import { routes as gameRoutes } from './game/game.module'
+import {
+	// routes as shopRoutes,
+	ShopModule
+} from './shop/shop.module'
 // import { ItemListComponent } from '../shop/item-list/item-list.component'
 // import { ShopComponent } from '../shop/shop.component'
 import { WelcomeComponent } from './welcome/welcome.component'
