@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
 import { LocStorageService } from '@services/loc-storage.service'
-
 import { GameComponent } from './game.component'
 
 describe('GameComponent', () => {
@@ -31,5 +29,5 @@ describe('GameComponent', () => {
 			expect(instanceLocStorageService.loadCoins).toHaveBeenCalledTimes(1)
 			expect(spyLoadCoins).toHaveBeenCalledTimes(1)
 		})
-	 })
+	})
 })
