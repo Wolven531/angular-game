@@ -1,11 +1,4 @@
-import {
-	Component,
-	Input,
-	OnInit,
-	Output,
-	EventEmitter
-} from '@angular/core'
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({

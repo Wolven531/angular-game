@@ -1,9 +1,4 @@
-import {
-	async,
-	ComponentFixture,
-	TestBed
-} from '@angular/core/testing'
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ItemListComponent } from './item-list/item-list.component'
 import { ShopComponent } from './shop.component'
 
@@ -16,7 +11,7 @@ describe('ShopComponent', () => {
 					ShopComponent
 				]
 			})
-			.compileComponents();
+			.compileComponents()
 		})
 	)
 

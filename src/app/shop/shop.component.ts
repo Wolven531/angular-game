@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
