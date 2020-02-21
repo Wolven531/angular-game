@@ -9,6 +9,7 @@
 		(click)="onSummonMinion()">Summon minion for 10 coins</button>
 	<h3>Minions (<span class="value">{{minions.length}}</span>)</h3>
 	<div *ngIf="minions.length > 0" class="minion-container">
+		<p>Minions below...</p>
 		<!--
 		<div *ngFor="let minion of minions; index as i">
 			<ag-minion [minion]="minion">
