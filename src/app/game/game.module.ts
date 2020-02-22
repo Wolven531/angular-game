@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { MinionComponent } from '../minion/minion.component'
+import { QuesterComponent } from '../quester/quester.component'
 import { GameComponent } from './game.component'
 
 export const routes: Routes = [
@@ -11,7 +12,8 @@ export const routes: Routes = [
 @NgModule({
 	declarations: [
 		GameComponent,
-		MinionComponent
+		MinionComponent,
+		QuesterComponent
 	],
 	exports: [
 		GameComponent
