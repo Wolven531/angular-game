@@ -10,6 +10,7 @@ export class QuesterComponent {
 	minion: any
 	@Output()
 	minionRefunded = new EventEmitter()
+	questProgress = 0
 
 	onRefundMinion() {
 		this.minionRefunded.emit()
