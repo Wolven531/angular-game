@@ -10,7 +10,8 @@
 	<h3>Minions (<span class="value">{{minions.length}}</span>)</h3>
 	<div *ngIf="minions.length > 0" class="minion-container">
 		<div *ngFor="let minion of minions; index as i">
-			<ag-quester [minion]="minion"></ag-quester>
+			<ag-quester [minion]="minion"
+				(minionRefunded)="onMinionRefunded()"></ag-quester>
 		</div>
 	</div>
 </div>
