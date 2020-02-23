@@ -11,12 +11,23 @@ export class QuesterComponent {
 	@Output()
 	minionRefunded = new EventEmitter()
 	questProgress = 0
+	questTimer: NodeJS.Timeout
 
 	onRefundMinion() {
 		this.minionRefunded.emit()
 	}
 
 	onStartQuest(minion: any) {
+		if (this.questTimer) {
+			return
+		}
 
+		this.questTimer = setInterval(() => {
+			if (this.questProgress >= 100) {
+				this.questProgress = 0
+			} else {
+				this.questProgress++
+			}
+		}, 5 * 1000 / 100) // 5 secs, 1000 millis per sec, spread across 100 ticks
 	}
 }
