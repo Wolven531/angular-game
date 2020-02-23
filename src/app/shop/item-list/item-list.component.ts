@@ -10,7 +10,7 @@ export class ItemListComponent implements OnInit {
 	@Input()
 	goldBars: number
 	@Output()
-	onGoldBarsChanged = new EventEmitter()
+	goldBarsChanged = new EventEmitter()
 
 	numSoldiers = 0
 
@@ -26,7 +26,7 @@ export class ItemListComponent implements OnInit {
 		this.goldBars -= 5
 		this.numSoldiers += 1
 
-		this.onGoldBarsChanged.emit(this.goldBars)
+		this.goldBarsChanged.emit(this.goldBars)
 		this.locStorageService.saveNumSoldiers(this.numSoldiers)
 	}
 
