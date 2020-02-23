@@ -23,7 +23,8 @@ export class GameComponent implements OnInit {
 		this.locStorageService.saveCoins(this.coins)
 	}
 
-	public onMinionRefunded() {
+	public onMinionRefunded(minionIndex: number) {
+		this.minions.splice(minionIndex, 1)
 		this.coins += Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
 
 		this.locStorageService.saveCoins(this.coins)
