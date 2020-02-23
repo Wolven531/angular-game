@@ -11,7 +11,7 @@ export class QuesterComponent {
 	@Output()
 	minionRefunded = new EventEmitter()
 	questProgress = 0
-	questTimer: NodeJS.Timeout
+	questTimer // NOTE: NodeJS.Timeout is the type, but tsconfig won't play nicely
 
 	onRefundMinion() {
 		this.minionRefunded.emit()
