@@ -1,0 +1,14 @@
+.quester-container {
+	display: flex;
+	flex-direction: column;
+
+	button.btn-refund-minion {
+		$bg-color: rgba(0, 170, 200, 0.75);
+		background-color: $bg-color;
+		margin: 0;
+
+		&:hover {
+			background-color: lighten($bg-color, 15%);
+		}
+	}
+}
