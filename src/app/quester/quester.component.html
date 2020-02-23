@@ -1,6 +1,8 @@
 <article class="quester-container">
 	<ag-minion [minion]="minion"></ag-minion>
 	<br />
+	<button class="btn-start-quest"
+		(click)="onStartQuest(minion)">Start Quest</button>
 	<button class="btn-refund-minion"
 		(click)="onRefundMinion()">Refund for 75%</button>
 </article>

@@ -14,4 +14,8 @@ export class QuesterComponent {
 	onRefundMinion() {
 		this.minionRefunded.emit()
 	}
+
+	onStartQuest(minion: any) {
+
+	}
 }
