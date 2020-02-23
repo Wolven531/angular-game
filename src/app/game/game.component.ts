@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
@@ -40,5 +39,8 @@ export class GameComponent implements OnInit {
 		}
 
 		this.minions.push(newMinion)
+
+		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
+		this.locStorageService.saveCoins(this.coins)
 	}
 }
