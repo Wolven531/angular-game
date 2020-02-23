@@ -1,4 +1,9 @@
 .progress-bar {
 	height: 50px;
 	width: 100%;
+
+	.bar {
+		background-color: #dd0031;
+		height: 100%;
+	}
 }

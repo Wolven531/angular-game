@@ -1,3 +1,8 @@
-<svg class="progress-bar" viewBox="0, 0, 100, 10" height="50" style="height: 50px">
-	<rect [attr.width]="value" height="10" fill="#DD0031"></rect>
-</svg>
+<div class="progress-bar">
+	<!--
+	<svg viewBox="0, 0, 100, 10" height="50px" width="100px">
+		<rect [attr.width]="value" height="10px" fill="#ff0000"></rect>
+	</svg>
+	-->
+	<div [ngStyle]="{'width': value + '%'}" class="bar"></div>
+</div>
