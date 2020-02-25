@@ -1,11 +1,15 @@
 .progress-bar {
+	background-color: #888;
+	border: 1px solid #000;
+	border-radius: 20px;
 	height: 15px;
-	padding: 10px 5px 5px 5px;
+	margin-top: 5px;
+	padding: 5px;
 	width: 92%;
 
 	.bar {
-		border-radius: 20px;
 		background-color: #ffff00;
+		border-radius: 20px;
 		height: 100%;
 	}
 }
