@@ -1,10 +1,9 @@
 <article class="quester-container">
 	<ag-minion [minion]="minion"></ag-minion>
-	<br />
+	<ag-progress [value]="questProgress"></ag-progress>
 	<button class="btn-start-quest"
 		[disabled]="questTimer !== undefined"
 		(click)="onStartQuest(minion)">Start Quest</button>
 	<button class="btn-refund-minion"
 		(click)="onRefundMinion()">Refund for 75%</button>
-	<ag-progress [value]="questProgress"></ag-progress>
 </article>
