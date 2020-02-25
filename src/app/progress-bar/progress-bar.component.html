@@ -4,5 +4,5 @@
 		<rect [attr.width]="value" height="10px" fill="#ff0000"></rect>
 	</svg>
 	-->
-	<div [ngStyle]="{'width': value + '%'}" class="bar"></div>
+	<div [ngStyle]="{ backgroundColor: value > 88 ? '#0f0' : (value > 50 ? '#ff0' : '#f00'), width: value + '%' }" class="bar"></div>
 </div>
