@@ -4,5 +4,10 @@
 		<rect [attr.width]="value" height="10px" fill="#ff0000"></rect>
 	</svg>
 	-->
-	<div [ngStyle]="{ backgroundColor: value > 88 ? '#0f0' : (value > 50 ? '#ff0' : '#f00'), width: value + '%' }" class="bar"></div>
+	<div
+		*ngIf="shouldUseDynamicColoring; else elseBlock"
+		[ngStyle]="{ backgroundColor: value > 88 ? '#0f0' : (value > 50 ? '#ff0' : '#f00'), width: value + '%' }" class="bar"></div>
+	<ng-template #elseBlock>
+		<div [ngStyle]="{ backgroundColor: '#0f0', width: value + '%' }" class="bar"></div>
+	</ng-template>
 </div>
