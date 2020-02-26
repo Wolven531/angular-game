@@ -10,6 +10,8 @@ export class QuesterComponent {
 	minion: any
 	@Output()
 	minionRefunded = new EventEmitter()
+	@Output()
+	questCompleted = new EventEmitter()
 	questProgress = 0
 	questTimer // NOTE: NodeJS.Timeout is the type, but tsconfig won't play nicely
 
@@ -24,6 +26,7 @@ export class QuesterComponent {
 
 		this.questTimer = setInterval(() => {
 			if (this.questProgress >= 100) {
+				this.questCompleted.emit()
 				this.questProgress = 0
 			} else {
 				this.questProgress++
