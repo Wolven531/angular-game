@@ -4,9 +4,8 @@
 		<rect [attr.width]="value" height="10px" fill="#ff0000"></rect>
 	</svg>
 	-->
-	<div
-		*ngIf="shouldUseDynamicColoring; else elseBlock"
-		[ngStyle]="{ backgroundColor: value > 88 ? colorAlmostComplete : (value > 50 ? colorHalfComplete : colorStartingToComplete), width: value + '%' }" class="bar"></div>
+	<div *ngIf="shouldUseDynamicColoring; else elseBlock"
+		[ngStyle]="{ backgroundColor: value > thresholdAlmostComplete ? colorAlmostComplete : (value > thresholdHalfComplete ? colorHalfComplete : colorStartingToComplete), width: value + '%' }" class="bar"></div>
 	<ng-template #elseBlock>
 		<div [ngStyle]="{ backgroundColor: colorAlmostComplete, width: value + '%' }" class="bar"></div>
 	</ng-template>

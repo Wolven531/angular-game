@@ -15,5 +15,9 @@ export class ProgressBarComponent {
 	@Input()
 	shouldUseDynamicColoring = true
 	@Input()
+	thresholdAlmostComplete = 88
+	@Input()
+	thresholdHalfComplete = 50
+	@Input()
 	value = 0
 }
