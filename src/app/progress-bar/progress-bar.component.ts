@@ -7,7 +7,13 @@ import { Component, Input } from '@angular/core'
 })
 export class ProgressBarComponent {
 	@Input()
-	value = 0
+	colorAlmostComplete = '#0f0'
+	@Input()
+	colorHalfComplete = '#ff0'
+	@Input()
+	colorStartingToComplete = '#f00'
 	@Input()
 	shouldUseDynamicColoring = true
+	@Input()
+	value = 0
 }
