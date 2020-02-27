@@ -30,6 +30,12 @@ export class GameComponent implements OnInit {
 		this.locStorageService.saveCoins(this.coins)
 	}
 
+	public onQuestCompleted() {
+		this.coins += 1
+
+		this.locStorageService.saveCoins(this.coins)
+	}
+
 	public onSummonMinion() {
 		const maxAttack = 10
 		const maxDefense = 3
