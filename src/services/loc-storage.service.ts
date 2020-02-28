@@ -18,10 +18,15 @@ export class LocStorageService {
 	public static STARTING_GOLD_BARS = 0
 	public static STARTING_NUM_SOLDIERS = 0
 
+	private KEY_COINS = 'coins'
+	private KEY_GOLD_BARS = 'goldBars'
+	private KEY_MINIONS = 'minions'
+	private KEY_NUM_SOLDIERS = 'numSoldiers'
+
 	constructor() { }
 
 	public loadCoins(): number {
-		const loadedCoins = parseInt(window.localStorage.getItem('coins'), 10)
+		const loadedCoins = parseInt(window.localStorage.getItem(this.KEY_COINS), 10)
 
 		return isNaN(loadedCoins)
 			? LocStorageService.STARTING_COINS
@@ -29,7 +34,7 @@ export class LocStorageService {
 	}
 
 	public loadGoldBars(): number {
-		const loadedGoldBars = parseInt(window.localStorage.getItem('goldBars'), 10)
+		const loadedGoldBars = parseInt(window.localStorage.getItem(this.KEY_GOLD_BARS), 10)
 
 		return isNaN(loadedGoldBars)
 			? LocStorageService.STARTING_GOLD_BARS
@@ -37,7 +42,7 @@ export class LocStorageService {
 	}
 
 	public loadMinions(): any[] {
-		const loadedMinions = window.localStorage.getItem('minions')
+		const loadedMinions = window.localStorage.getItem(this.KEY_MINIONS)
 
 		return loadedMinions === null
 			? []
@@ -45,7 +50,7 @@ export class LocStorageService {
 	}
 
 	public loadNumSoldiers(): number {
-		const loadedNumSoldiers = parseInt(window.localStorage.getItem('numSoldiers'), 10)
+		const loadedNumSoldiers = parseInt(window.localStorage.getItem(this.KEY_NUM_SOLDIERS), 10)
 
 		return isNaN(loadedNumSoldiers)
 			? LocStorageService.STARTING_NUM_SOLDIERS
@@ -53,18 +58,18 @@ export class LocStorageService {
 	}
 
 	public saveCoins(coins: number) {
-		window.localStorage.setItem('coins', String(coins))
+		window.localStorage.setItem(this.KEY_COINS, String(coins))
 	}
 
 	public saveGoldBars(goldBars: number) {
-		window.localStorage.setItem('goldBars', String(goldBars))
+		window.localStorage.setItem(this.KEY_GOLD_BARS, String(goldBars))
 	}
 
 	public saveMinions(minions: any[]) {
-		window.localStorage.setItem('minions', JSON.stringify(minions))
+		window.localStorage.setItem(this.KEY_MINIONS, JSON.stringify(minions))
 	}
 
 	public saveNumSoldiers(numSoldiers: number) {
-		window.localStorage.setItem('numSoldiers', String(numSoldiers))
+		window.localStorage.setItem(this.KEY_NUM_SOLDIERS, String(numSoldiers))
 	}
 }
