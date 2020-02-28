@@ -36,6 +36,14 @@ export class LocStorageService {
 			: loadedGoldBars
 	}
 
+	public loadMinions(): any[] {
+		const loadedMinions = window.localStorage.getItem('minions')
+
+		return loadedMinions === null
+			? []
+			: JSON.parse(loadedMinions)
+	}
+
 	public loadNumSoldiers(): number {
 		const loadedNumSoldiers = parseInt(window.localStorage.getItem('numSoldiers'), 10)
 
@@ -50,6 +58,10 @@ export class LocStorageService {
 
 	public saveGoldBars(goldBars: number) {
 		window.localStorage.setItem('goldBars', String(goldBars))
+	}
+
+	public saveMinions(minions: any[]) {
+		window.localStorage.setItem('minions', JSON.stringify(minions))
 	}
 
 	public saveNumSoldiers(numSoldiers: number) {
