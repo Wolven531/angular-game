@@ -15,6 +15,7 @@ export class GameComponent implements OnInit {
 
 	public ngOnInit() {
 		this.coins = this.locStorageService.loadCoins()
+		this.minions = this.locStorageService.loadMinions()
 	}
 
 	public onGenerateCoin(evt) {
