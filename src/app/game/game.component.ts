@@ -28,6 +28,7 @@ export class GameComponent implements OnInit {
 		this.coins += Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
 
 		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveMinions(this.minions)
 	}
 
 	public onQuestCompleted() {
@@ -55,5 +56,6 @@ export class GameComponent implements OnInit {
 
 		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
 		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveMinions(this.minions)
 	}
 }
