@@ -32,8 +32,8 @@ export class GameComponent implements OnInit {
 		this.locStorageService.saveMinions(this.minions)
 	}
 
-	public onQuestCompleted() {
-		this.coins += 1
+	public onQuestCompleted(minionAttack: number) {
+		this.coins += minionAttack
 
 		this.locStorageService.saveCoins(this.coins)
 	}
