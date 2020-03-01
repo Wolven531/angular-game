@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
@@ -41,18 +42,11 @@ export class GameComponent implements OnInit {
 	}
 
 	public onSummonMinion() {
-		const maxAttack = 10
-		const maxDefense = 3
-		const maxHitpoints = 5
-		const minAttack = 1
-		const minDefense = 1
-		const minHitpoints = 1
-
 		const newMinion = {
-			attack: minAttack + Math.round(Math.random() * (maxAttack - minAttack)),
+			attack: Minion.minAttack + Math.round(Math.random() * (Minion.maxAttack - Minion.minAttack)),
 			damageTaken: 0,
-			defense: minDefense + Math.round(Math.random() * (maxDefense - minDefense)),
-			hp: minHitpoints + Math.round(Math.random() * (maxHitpoints - minHitpoints))
+			defense: Minion.minDefense + Math.round(Math.random() * (Minion.maxDefense - Minion.minDefense)),
+			hp: Minion.minHitpoints + Math.round(Math.random() * (Minion.maxHitpoints - Minion.minHitpoints))
 		}
 
 		this.minions.push(newMinion)
