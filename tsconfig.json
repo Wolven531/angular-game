@@ -20,6 +20,7 @@
       "dom"
     ],
     "paths": {
+      "@models/*": ["src/app/models/*"],
       "@services/*": ["src/services/*"]
     }
   },
