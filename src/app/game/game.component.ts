@@ -9,6 +9,7 @@ import { LocStorageService } from '@services/loc-storage.service'
 export class GameComponent implements OnInit {
 	public coins = 0
 	public minions = []
+	public numSoldiers = 0
 
 	constructor(private locStorageService: LocStorageService) {
 	}
@@ -16,6 +17,7 @@ export class GameComponent implements OnInit {
 	public ngOnInit() {
 		this.coins = this.locStorageService.loadCoins()
 		this.minions = this.locStorageService.loadMinions()
+		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
 	public onGenerateCoin(evt) {
