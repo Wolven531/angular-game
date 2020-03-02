@@ -45,9 +45,19 @@ export class LocStorageService {
 	public loadMinions(): Minion[] {
 		const loadedMinions = window.localStorage.getItem(this.KEY_MINIONS)
 
-		return loadedMinions === null
-			? []
-			: JSON.parse(loadedMinions)
+		if (loadedMinions === null) {
+			return []
+		}
+
+		const minionObjArr: any[] = JSON.parse(loadedMinions)
+		const minions: Minion[] = minionObjArr.map(minObj =>
+			new Minion(
+				minObj._attack,
+				minObj._defense,
+				minObj._hp,
+				minObj._damageTaken,
+			))
+		return minions
 	}
 
 	public loadNumSoldiers(): number {
