@@ -43,10 +43,10 @@ export class GameComponent implements OnInit {
 
 	public onSummonMinion() {
 		const newMinion = {
-			attack: Minion.minAttack + Math.round(Math.random() * (Minion.maxAttack - Minion.minAttack)),
+			attack: Minion.MIN_ATTACK + Math.round(Math.random() * (Minion.MAX_ATTACK - Minion.MIN_ATTACK)),
 			damageTaken: 0,
-			defense: Minion.minDefense + Math.round(Math.random() * (Minion.maxDefense - Minion.minDefense)),
-			hp: Minion.minHitpoints + Math.round(Math.random() * (Minion.maxHitpoints - Minion.minHitpoints))
+			defense: Minion.MIN_DEFENSE + Math.round(Math.random() * (Minion.MAX_DEFENSE - Minion.MIN_DEFENSE)),
+			hp: Minion.MIN_HITPOINTS + Math.round(Math.random() * (Minion.MAX_HITPOINTS - Minion.MIN_HITPOINTS))
 		}
 
 		this.minions.push(newMinion)
