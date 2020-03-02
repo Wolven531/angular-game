@@ -9,7 +9,7 @@ import { LocStorageService } from '@services/loc-storage.service'
 })
 export class GameComponent implements OnInit {
 	public coins = 0
-	public minions = []
+	public minions: Minion[] = []
 	public numSoldiers = 0
 
 	constructor(private locStorageService: LocStorageService) {
@@ -42,12 +42,7 @@ export class GameComponent implements OnInit {
 	}
 
 	public onSummonMinion() {
-		const newMinion = {
-			attack: Minion.MIN_ATTACK + Math.round(Math.random() * (Minion.MAX_ATTACK - Minion.MIN_ATTACK)),
-			damageTaken: 0,
-			defense: Minion.MIN_DEFENSE + Math.round(Math.random() * (Minion.MAX_DEFENSE - Minion.MIN_DEFENSE)),
-			hp: Minion.MIN_HITPOINTS + Math.round(Math.random() * (Minion.MAX_HITPOINTS - Minion.MIN_HITPOINTS))
-		}
+		const newMinion = new Minion()
 
 		this.minions.push(newMinion)
 

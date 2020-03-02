@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
@@ -8,7 +9,7 @@ import { LocStorageService } from '@services/loc-storage.service'
 })
 export class MinionComponent implements OnInit {
 	@Input()
-	public minion: any
+	public minion: Minion
 
 	public numSoldiers = 0
 

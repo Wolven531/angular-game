@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Minion } from '@models/minion.model'
 
 @Component({
 	selector: 'ag-quester',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 })
 export class QuesterComponent {
 	@Input()
-	minion: any
+	minion: Minion
 	@Output()
 	minionRefunded = new EventEmitter()
 	@Output()
@@ -19,7 +20,7 @@ export class QuesterComponent {
 		this.minionRefunded.emit()
 	}
 
-	onStartQuest(minion: any) {
+	onStartQuest(minion: Minion) {
 		if (this.questTimer) {
 			return
 		}

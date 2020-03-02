@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { Minion } from '@models/minion.model'
 
 @Injectable({
 	providedIn: 'root'
@@ -41,7 +42,7 @@ export class LocStorageService {
 			: loadedGoldBars
 	}
 
-	public loadMinions(): any[] {
+	public loadMinions(): Minion[] {
 		const loadedMinions = window.localStorage.getItem(this.KEY_MINIONS)
 
 		return loadedMinions === null
@@ -65,7 +66,7 @@ export class LocStorageService {
 		window.localStorage.setItem(this.KEY_GOLD_BARS, String(goldBars))
 	}
 
-	public saveMinions(minions: any[]) {
+	public saveMinions(minions: Minion[]) {
 		window.localStorage.setItem(this.KEY_MINIONS, JSON.stringify(minions))
 	}
 
