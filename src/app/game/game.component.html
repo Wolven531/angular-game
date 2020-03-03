@@ -12,7 +12,7 @@
 		<div *ngFor="let minion of minions; index as i">
 			<ag-quester [minion]="minion"
 				(minionRefunded)="onMinionRefunded(i)"
-				(questCompleted)="onQuestCompleted(minion.attack)"></ag-quester>
+				(questCompleted)="onQuestCompleted(minion)"></ag-quester>
 		</div>
 	</div>
 </div>

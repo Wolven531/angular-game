@@ -22,6 +22,10 @@ export class Minion {
 		return Math.max(this._hp - this._damageTaken, 0)
 	}
 
+	public takeDamage(amountTaken: number) {
+		this._damageTaken += amountTaken
+	}
+
 	constructor(
 		// tslint:disable-next-line: variable-name
 		private _attack?: number,
