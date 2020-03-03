@@ -21,7 +21,7 @@ export class GameComponent implements OnInit {
 		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
-	public onGenerateCoin(evt) {
+	public onGenerateCoin() {
 		this.coins += LocStorageService.EXCHANGE_RATE_COIN
 
 		this.locStorageService.saveCoins(this.coins)
