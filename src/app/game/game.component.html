@@ -2,7 +2,7 @@
 	<h3 class="coins">Num coins: <span class="value">{{coins}}</span></h3>
 	<button
 		class="btn-earn-coin"
-		(click)="onGenerateCoin($event)">Earn coin</button>
+		(click)="onGenerateCoin()">Earn coin</button>
 	<button
 		class="btn-summon-minion"
 		[disabled]="coins < 10"
