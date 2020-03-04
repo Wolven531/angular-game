@@ -35,7 +35,7 @@ export class GameComponent implements OnInit {
 		this.locStorageService.saveMinions(this.minions)
 	}
 
-	public onQuestCompleted(minion: Minion) {
+	public onQuestCompleted(minion: Minion, minionIndex: number) {
 		this.coins += this.numSoldiers + minion.attack
 
 		const dmgChance = Math.round(Math.random() * 3)
@@ -43,6 +43,10 @@ export class GameComponent implements OnInit {
 		if (dmgChance > 2) {
 			const dmg = Math.round(1 + Math.random() * 2)
 			minion.takeDamage(dmg)
+
+			if (minion.hitpointsRemaining === 0) {
+				this.minions.splice(minionIndex, 1)
+			}
 		}
 
 		this.locStorageService.saveCoins(this.coins)
