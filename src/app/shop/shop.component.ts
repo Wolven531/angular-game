@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
 		this.goldBars = this.locStorageService.loadGoldBars()
 	}
 
-	public onExchangeBarForCoins(evt) {
+	public onExchangeBarForCoins() {
 		const refund = Math.round(1 / LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 		const removalAmount = Math.round(refund * LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 
@@ -31,7 +31,7 @@ export class ShopComponent implements OnInit {
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
-	public onExchangeCoinsForBar(evt) {
+	public onExchangeCoinsForBar() {
 		const cost = Math.round(1 / LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 		const additionalAmount = Math.round(cost * LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 
@@ -47,7 +47,7 @@ export class ShopComponent implements OnInit {
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
-	public onGoldBarsChanged(newGoldBars) {
+	public onGoldBarsChanged(newGoldBars: number) {
 		this.goldBars = newGoldBars
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
