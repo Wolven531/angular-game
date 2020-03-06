@@ -8,17 +8,17 @@ import { LocStorageService } from '@services/loc-storage.service'
 })
 export class ItemListComponent implements OnInit {
 	@Input()
-	goldBars: number
+	public goldBars: number
 	@Output()
-	goldBarsChanged = new EventEmitter()
+	public goldBarsChanged = new EventEmitter()
 
-	numSoldiers = 0
+	public numSoldiers = 0
 
-	ngOnInit() {
+	public ngOnInit() {
 		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
-	onPurchaseSoldier() {
+	public onPurchaseSoldier() {
 		if (this.goldBars < 5) {
 			return
 		}
