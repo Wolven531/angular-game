@@ -9,6 +9,7 @@ import { LocStorageService } from '@services/loc-storage.service'
 })
 export class GameComponent implements OnInit {
 	public coins = 0
+	public logs: string[] = []
 	public minions: Minion[] = []
 	public numSoldiers = 0
 
@@ -56,10 +57,16 @@ export class GameComponent implements OnInit {
 	public onSummonMinion() {
 		const newMinion = new Minion()
 
+		this.log(`Summoned minion: ${JSON.stringify(newMinion)}`)
+
 		this.minions.push(newMinion)
 
 		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
+	}
+
+	private log(newMsg: string) {
+		this.logs.push(newMsg)
 	}
 }
