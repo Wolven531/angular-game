@@ -22,6 +22,10 @@ export class GameComponent implements OnInit {
 		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
+	public onClearLogs() {
+		this.logs = []
+	}
+
 	public onGenerateCoin() {
 		this.coins += LocStorageService.EXCHANGE_RATE_COIN
 
@@ -37,6 +41,18 @@ export class GameComponent implements OnInit {
 
 		this.coins += refundAmount
 
+		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveMinions(this.minions)
+	}
+
+	public onSummonMinion() {
+		const newMinion = new Minion()
+
+		this.log(`Summoned minion: ${JSON.stringify(newMinion)}`)
+
+		this.minions.push(newMinion)
+
+		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
@@ -59,18 +75,6 @@ export class GameComponent implements OnInit {
 			}
 		}
 
-		this.locStorageService.saveCoins(this.coins)
-		this.locStorageService.saveMinions(this.minions)
-	}
-
-	public onSummonMinion() {
-		const newMinion = new Minion()
-
-		this.log(`Summoned minion: ${JSON.stringify(newMinion)}`)
-
-		this.minions.push(newMinion)
-
-		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}

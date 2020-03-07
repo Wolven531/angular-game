@@ -18,4 +18,8 @@
 	<div class="log">
 		<textarea cols="80" rows="10">{{logs.join('\n')}}</textarea>
 	</div>
+	<button
+		class="btn-clear-logs"
+		[disabled]="logs.length < 1"
+		(click)="onClearLogs()">Clear logs</button>
 </div>

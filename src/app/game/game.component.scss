@@ -1,4 +1,17 @@
 .game-container {
+	button.btn-clear-logs {
+		$bg-color: rgb(120, 0, 200);
+		background-color: $bg-color;
+
+		&:hover {
+			background-color: lighten($bg-color, 15%);
+		}
+
+		&[disabled] {
+			background-color: grayscale($bg-color);
+		}
+	}
+
 	button.btn-earn-coin {
 		$bg-color: rgba(100,200,0,.75);
 		background-color: $bg-color;
