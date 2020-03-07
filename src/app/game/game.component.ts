@@ -30,14 +30,23 @@ export class GameComponent implements OnInit {
 
 	public onMinionRefunded(minionIndex: number) {
 		this.minions.splice(minionIndex, 1)
-		this.coins += Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
+
+		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
+
+		this.log(`Minion refunded. Earned coin: ${refundAmount}`)
+
+		this.coins += refundAmount
 
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 
 	public onQuestCompleted(minion: Minion, minionIndex: number) {
-		this.coins += this.numSoldiers + minion.attack
+		const earnedAmount = this.numSoldiers + minion.attack
+
+		this.log(`Quest completed. Earned coin: ${earnedAmount}`)
+
+		this.coins += earnedAmount
 
 		const dmgChance = Math.round(Math.random() * 3)
 
