@@ -37,7 +37,7 @@ export class GameComponent implements OnInit {
 
 		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
 
-		this.log(`Minion refunded. Earned coin: ${refundAmount}`)
+		this.log(`🚼- Minion refunded. Earned coin: ${refundAmount}`)
 
 		this.coins += refundAmount
 
@@ -48,7 +48,7 @@ export class GameComponent implements OnInit {
 	public onSummonMinion() {
 		const newMinion = new Minion()
 
-		this.log(`Summoned minion: ${JSON.stringify(newMinion)}`)
+		this.log(`👶⁜ Summoned minion: ${JSON.stringify(newMinion)}`)
 
 		this.minions.push(newMinion)
 
@@ -60,7 +60,7 @@ export class GameComponent implements OnInit {
 	public onQuestCompleted(minion: Minion, minionIndex: number) {
 		const earnedAmount = this.numSoldiers + minion.attack
 
-		this.log(`Quest completed. Earned coin: ${earnedAmount}`)
+		this.log(`💰$ Quest completed. Earned coin: ${earnedAmount}`)
 
 		this.coins += earnedAmount
 
@@ -68,11 +68,19 @@ export class GameComponent implements OnInit {
 
 		if (dmgChance > 2) {
 			const dmg = Math.round(1 + Math.random() * 2)
+
+			this.log(`🤺⚔ Minion takes damage: ${dmg}`)
+
 			minion.takeDamage(dmg)
 
 			if (minion.hitpointsRemaining === 0) {
+				this.log(`💀☠ Minion at position ${minionIndex + 1} has retired due to fatigue`)
 				this.minions.splice(minionIndex, 1)
+			} else {
+				this.log(`💖♥ But lives to fight another day w/ ${minion.hitpointsRemaining} hitpoints left`)
 			}
+		} else {
+			this.log(`💖♥ Minion ventures on untouched w/ ${minion.hitpointsRemaining} hitpoints left`)
 		}
 
 		this.locStorageService.saveCoins(this.coins)
@@ -80,6 +88,6 @@ export class GameComponent implements OnInit {
 	}
 
 	private log(newMsg: string) {
-		this.logs.push(newMsg)
+		this.logs.splice(0, 0, newMsg)
 	}
 }
