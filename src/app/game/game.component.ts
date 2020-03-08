@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
+import { NameGeneratorService } from '@services/name-gen.service'
 
 @Component({
 	// selector: 'ag-game',
@@ -13,7 +14,7 @@ export class GameComponent implements OnInit {
 	public minions: Minion[] = []
 	public numSoldiers = 0
 
-	constructor(private locStorageService: LocStorageService) {
+	constructor(private locStorageService: LocStorageService, private nameGenService: NameGeneratorService) {
 	}
 
 	public ngOnInit() {
@@ -47,8 +48,9 @@ export class GameComponent implements OnInit {
 
 	public onSummonMinion() {
 		const newMinion = new Minion()
+		newMinion.name = this.nameGenService.generateName()
 
-		this.log(`👶⁜ Summoned minion: ${JSON.stringify(newMinion)}`)
+		this.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
 
 		this.minions.push(newMinion)
 

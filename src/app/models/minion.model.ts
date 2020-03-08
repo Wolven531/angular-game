@@ -22,6 +22,14 @@ export class Minion {
 		return Math.max(this._hp - this._damageTaken, 0)
 	}
 
+	public get name() {
+		return this._name
+	}
+
+	public set name(newName: string) {
+		this._name = newName
+	}
+
 	public takeDamage(amountTaken: number) {
 		this._damageTaken += amountTaken
 	}
@@ -35,6 +43,8 @@ export class Minion {
 		private _hp?: number,
 		// tslint:disable-next-line: variable-name
 		private _damageTaken?: number,
+		// tslint:disable-next-line: variable-name
+		private _name?: string,
 	) {
 		this._attack = _attack === undefined
 			? Minion.MIN_ATTACK + Math.round(Math.random() * (Minion.MAX_ATTACK - Minion.MIN_ATTACK))
@@ -45,6 +55,9 @@ export class Minion {
 		this._hp = _hp === undefined
 			? Minion.MIN_HITPOINTS + Math.round(Math.random() * (Minion.MAX_HITPOINTS - Minion.MIN_HITPOINTS))
 			: _hp
+		this._name = _name === undefined
+			? ''
+			: _name
 
 		this._damageTaken = _damageTaken === undefined
 			? 0

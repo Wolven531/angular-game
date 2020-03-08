@@ -54,6 +54,7 @@ export class LocStorageService {
 				minObj._defense,
 				minObj._hp,
 				minObj._damageTaken,
+				minObj._name,
 			))
 		return minions
 	}
