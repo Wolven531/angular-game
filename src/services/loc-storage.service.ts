@@ -24,8 +24,6 @@ export class LocStorageService {
 	private KEY_MINIONS = 'minions'
 	private KEY_NUM_SOLDIERS = 'numSoldiers'
 
-	constructor() { }
-
 	public loadCoins(): number {
 		const loadedCoins = parseInt(window.localStorage.getItem(this.KEY_COINS), 10)
 
