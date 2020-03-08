@@ -87,6 +87,10 @@ export class GameComponent implements OnInit {
 		this.locStorageService.saveMinions(this.minions)
 	}
 
+	public onQuestStarted(minion: Minion, minionIndex: number) {
+		this.log(`🤾‍♂️⚥ Minion at position ${minionIndex + 1} has started a quest`)
+	}
+
 	private log(newMsg: string) {
 		this.logs.splice(0, 0, newMsg)
 	}
