@@ -33,4 +33,8 @@ export class LoggerService {
 	public log(newLog: string): void {
 		this.logs.splice(0, 0, newLog)
 	}
+
+	public logMulti(newLogs: string[], separator = '\n'): void {
+		this.logs.splice(0, 0, newLogs.join(separator))
+	}
 }

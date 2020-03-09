@@ -37,11 +37,12 @@ export class GameComponent implements OnInit {
 	}
 
 	public onMinionRefunded(minionIndex: number) {
+		const minion = this.minions[minionIndex]
 		this.minions.splice(minionIndex, 1)
 
 		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
 
-		this.log(`🚼- Minion refunded. Earned coin: ${refundAmount}`)
+		this.loggerService.log(`🚼- ${minion.name} refunded. Earned coin: ${refundAmount}`)
 
 		this.coins += refundAmount
 
@@ -53,7 +54,7 @@ export class GameComponent implements OnInit {
 		const newMinion = new Minion()
 		newMinion.name = this.nameGenService.generateName()
 
-		this.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
+		this.loggerService.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
 
 		this.minions.push(newMinion)
 
@@ -63,36 +64,34 @@ export class GameComponent implements OnInit {
 	}
 
 	public onQuestCompleted(minion: Minion, minionIndex: number) {
+		const dmgChance = Math.round(Math.random() * 3)
 		const earnedAmount = this.numSoldiers + minion.attack
+		const constructedMsg: string[] = []
 
-		this.log(`💰$ Quest completed. Earned coin: ${earnedAmount}`)
+		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedAmount}`)
 
 		this.coins += earnedAmount
-
-		const dmgChance = Math.round(Math.random() * 3)
 
 		if (dmgChance > 2) {
 			const dmg = Math.round(1 + Math.random() * 2)
 
-			this.log(`🤺⚔ Minion takes damage: ${dmg}`)
+			constructedMsg.push(`\t🤺⚔ ${minion.name} takes damage: ${dmg}`)
 
 			minion.takeDamage(dmg)
 
 			if (minion.hitpointsRemaining === 0) {
-				this.log(`💀☠ Minion at position ${minionIndex + 1} has retired due to fatigue`)
+				constructedMsg.push(`\t\t💀☠ ${minion.name} has retired due to fatigue`)
 				this.minions.splice(minionIndex, 1)
 			} else {
-				this.log(`💖♥ But lives to fight another day w/ ${minion.hitpointsRemaining} hitpoints left`)
+				constructedMsg.push(`\t\t💖♥ But ${minion.name} lives to fight another day w/ ${minion.hitpointsRemaining} hitpoints left`)
 			}
 		} else {
-			this.log(`💖♥ Minion ventures on untouched w/ ${minion.hitpointsRemaining} hitpoints left`)
+			constructedMsg.push(`\t💖♥ ${minion.name} ventures on untouched w/ ${minion.hitpointsRemaining} hitpoints left`)
 		}
+
+		this.loggerService.logMulti(constructedMsg)
 
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
-	}
-
-	private log(newMsg: string) {
-		this.loggerService.log(newMsg)
 	}
 }
