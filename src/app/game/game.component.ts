@@ -27,6 +27,7 @@ export class GameComponent implements OnInit {
 	}
 
 	public onClearLogs() {
+		this.loggerService.clearLogs()
 	}
 
 	public onGenerateCoin() {
@@ -89,10 +90,6 @@ export class GameComponent implements OnInit {
 
 		this.locStorageService.saveCoins(this.coins)
 		this.locStorageService.saveMinions(this.minions)
-	}
-
-	public onQuestStarted(minion: Minion, minionIndex: number) {
-		this.log(`🤾‍♂️⚥ Minion at position ${minionIndex + 1} has started a quest`)
 	}
 
 	private log(newMsg: string) {

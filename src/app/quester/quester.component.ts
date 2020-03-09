@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Minion } from '@models/minion.model'
+import { LoggerService } from '@services/logger.service'
 
 @Component({
 	selector: 'ag-quester',
@@ -19,6 +20,8 @@ export class QuesterComponent {
 	questProgress = 0
 	questTimer // NOTE: NodeJS.Timeout is the type, but tsconfig won't play nicely
 
+	constructor(private loggerService: LoggerService) {}
+
 	onRefundMinion() {
 		this.minionRefunded.emit()
 	}
@@ -28,7 +31,9 @@ export class QuesterComponent {
 			return
 		}
 
+		this.loggerService.log(`🤾‍♂️⚥ ${minion.name} has started a quest`)
 		this.questStarted.emit()
+
 		this.questTimer = setInterval(() => {
 			if (this.questProgress >= 100) {
 				this.questCompleted.emit()
