@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
+import { LoggerService } from '@services/logger.service'
 import { NameGeneratorService } from '@services/name-gen.service'
 
 @Component({
@@ -10,11 +11,13 @@ import { NameGeneratorService } from '@services/name-gen.service'
 })
 export class GameComponent implements OnInit {
 	public coins = 0
-	public logs: string[] = []
 	public minions: Minion[] = []
 	public numSoldiers = 0
 
-	constructor(private locStorageService: LocStorageService, private nameGenService: NameGeneratorService) {
+	constructor(
+		private locStorageService: LocStorageService,
+		private nameGenService: NameGeneratorService,
+		public loggerService: LoggerService) {
 	}
 
 	public ngOnInit() {
@@ -24,7 +27,6 @@ export class GameComponent implements OnInit {
 	}
 
 	public onClearLogs() {
-		this.logs = []
 	}
 
 	public onGenerateCoin() {
@@ -94,6 +96,6 @@ export class GameComponent implements OnInit {
 	}
 
 	private log(newMsg: string) {
-		this.logs.splice(0, 0, newMsg)
+		this.loggerService.log(newMsg)
 	}
 }
