@@ -67,8 +67,10 @@ export class GameComponent implements OnInit {
 		const dmgChance = Math.round(Math.random() * 3)
 		const earnedAmount = this.numSoldiers + minion.attack
 		const constructedMsg: string[] = []
+		const newXP = Math.round(1 + Math.random() * 2)
 
-		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedAmount}`)
+		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedAmount}. Earned XP: ${newXP}`)
+		minion.addXp(newXP)
 
 		this.coins += earnedAmount
 
