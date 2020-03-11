@@ -1,10 +1,10 @@
-import { Injectable, OnInit } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Injectable({
 	providedIn: 'root'
 })
-export class GameService implements OnInit {
+export class GameService {
 	private _coins: number
 	private _numSoldiers: number
 
@@ -23,11 +23,10 @@ export class GameService implements OnInit {
 	}
 
 	constructor(private readonly locStorageService: LocStorageService) {
-		this._coins = 0
-		this._numSoldiers = 0
+		this.init()
 	}
 
-	public ngOnInit(): void {
+	private init(): void {
 		this._coins = this.locStorageService.loadCoins()
 		this._numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
