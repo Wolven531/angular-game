@@ -27,6 +27,5 @@ export class ItemListComponent {
 
 	constructor(
 		private readonly locStorageService: LocStorageService,
-		public readonly gameService: GameService
-	) {}
+		public readonly gameService: GameService) {}
 }

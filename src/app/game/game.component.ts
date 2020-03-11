@@ -17,8 +17,7 @@ export class GameComponent implements OnInit {
 		private readonly locStorageService: LocStorageService,
 		private readonly nameGenService: NameGeneratorService,
 		public readonly loggerService: LoggerService,
-		private readonly gameService: GameService) {
-	}
+		public readonly gameService: GameService) {}
 
 	public ngOnInit() {
 		this.minions = this.locStorageService.loadMinions()
