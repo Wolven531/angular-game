@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Minion } from '@models/minion.model'
+import { GameService } from '@services/game.service'
 import { LocStorageService } from '@services/loc-storage.service'
 import { LoggerService } from '@services/logger.service'
 import { NameGeneratorService } from '@services/name-gen.service'
@@ -12,18 +13,17 @@ import { NameGeneratorService } from '@services/name-gen.service'
 export class GameComponent implements OnInit {
 	public coins = 0
 	public minions: Minion[] = []
-	public numSoldiers = 0
 
 	constructor(
-		private locStorageService: LocStorageService,
-		private nameGenService: NameGeneratorService,
-		public loggerService: LoggerService) {
+		private readonly locStorageService: LocStorageService,
+		private readonly nameGenService: NameGeneratorService,
+		public readonly loggerService: LoggerService,
+		private readonly gameService: GameService) {
 	}
 
 	public ngOnInit() {
 		this.coins = this.locStorageService.loadCoins()
 		this.minions = this.locStorageService.loadMinions()
-		this.numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 
 	public onClearLogs() {
@@ -65,7 +65,7 @@ export class GameComponent implements OnInit {
 
 	public onQuestCompleted(minion: Minion, minionIndex: number) {
 		const dmgChance = Math.round(Math.random() * 3)
-		const earnedAmount = this.numSoldiers + minion.attack
+		const earnedAmount = this.gameService.numSoldiers + minion.attack
 		const constructedMsg: string[] = []
 		const newXP = Math.round(1 + Math.random() * 2)
 
