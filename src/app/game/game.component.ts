@@ -11,7 +11,6 @@ import { NameGeneratorService } from '@services/name-gen.service'
 	templateUrl: './game.component.html'
 })
 export class GameComponent implements OnInit {
-	public coins = 0
 	public minions: Minion[] = []
 
 	constructor(
@@ -22,7 +21,6 @@ export class GameComponent implements OnInit {
 	}
 
 	public ngOnInit() {
-		this.coins = this.locStorageService.loadCoins()
 		this.minions = this.locStorageService.loadMinions()
 	}
 
@@ -31,9 +29,9 @@ export class GameComponent implements OnInit {
 	}
 
 	public onGenerateCoin() {
-		this.coins += LocStorageService.EXCHANGE_RATE_COIN
+		this.gameService.coins += LocStorageService.EXCHANGE_RATE_COIN
 
-		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveCoins(this.gameService.coins)
 	}
 
 	public onMinionRefunded(minionIndex: number) {
@@ -44,9 +42,9 @@ export class GameComponent implements OnInit {
 
 		this.loggerService.log(`🚼- ${minion.name} refunded. Earned coin: ${refundAmount}`)
 
-		this.coins += refundAmount
+		this.gameService.coins += refundAmount
 
-		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 
@@ -58,8 +56,8 @@ export class GameComponent implements OnInit {
 
 		this.minions.push(newMinion)
 
-		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
-		this.locStorageService.saveCoins(this.coins)
+		this.gameService.coins -= LocStorageService.EXCHANGE_RATE_MINION
+		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 
@@ -72,7 +70,7 @@ export class GameComponent implements OnInit {
 		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedAmount}. Earned XP: ${newXP}`)
 		minion.addXp(newXP)
 
-		this.coins += earnedAmount
+		this.gameService.coins += earnedAmount
 
 		if (dmgChance > 2) {
 			const dmg = Math.round(1 + Math.random() * 2)
@@ -93,7 +91,7 @@ export class GameComponent implements OnInit {
 
 		this.loggerService.logMulti(constructedMsg)
 
-		this.locStorageService.saveCoins(this.coins)
+		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 }

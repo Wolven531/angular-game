@@ -1,11 +1,11 @@
 <div class="game-container">
-	<h3 class="coins">Num coins: <span class="value">{{coins}}</span></h3>
+	<h3 class="coins">Num coins: <span class="value">{{gameService.coins}}</span></h3>
 	<button
 		class="btn-earn-coin"
 		(click)="onGenerateCoin()">Earn coin</button>
 	<button
 		class="btn-summon-minion"
-		[disabled]="coins < 10"
+		[disabled]="gameService.coins < 10"
 		(click)="onSummonMinion()">Summon minion for 10 coins</button>
 	<h3>Minions (<span class="value">{{minions.length}}</span>)</h3>
 	<div *ngIf="minions.length > 0" class="minion-container">
