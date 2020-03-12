@@ -1,16 +1,14 @@
 <div class="shop-container">
 	<h3>Shop</h3>
 	<h3 class="coins">Num coins: <span class="value">{{gameService.coins}}</span></h3>
-	<h3 class="gold">Num gold bars: <span class="value">{{goldBars}}</span></h3>
+	<h3 class="gold">Num gold bars: <span class="value">{{gameService.goldBars}}</span></h3>
 	<button
 		class="btn-exchange-coins"
 		[disabled]="gameService.coins < 10"
 		(click)="onExchangeCoinsForBar()">Exchange 10 coins for gold bar</button>
 	<button
 		class="btn-exchange-bars"
-		[disabled]="goldBars < 1"
+		[disabled]="gameService.goldBars < 1"
 		(click)="onExchangeBarForCoins()">Exchange 1 gold bar for 10 coins</button>
-	<ag-item-list
-		[goldBars]="goldBars"
-		(goldBarsChanged)="onGoldBarsChanged($event)"></ag-item-list>
+	<ag-item-list></ag-item-list>
 </div>

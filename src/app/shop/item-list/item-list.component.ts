@@ -7,20 +7,13 @@ import { GameService } from '@services/game.service'
 	templateUrl: './item-list.component.html'
 })
 export class ItemListComponent {
-	@Input()
-	public goldBars: number
-	@Output()
-	public goldBarsChanged = new EventEmitter()
-
 	public onPurchaseSoldier() {
-		if (this.goldBars < 5) {
+		if (this.gameService.goldBars < 5) {
 			return
 		}
 
-		this.goldBars -= 5
+		this.gameService.goldBars -= 5
 		this.gameService.numSoldiers += 1
-
-		this.goldBarsChanged.emit(this.goldBars)
 	}
 
 	constructor(public readonly gameService: GameService) {}

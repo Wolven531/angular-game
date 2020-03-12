@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { GameService } from '@services/game.service'
 import { LocStorageService } from '@services/loc-storage.service'
 
@@ -7,26 +7,18 @@ import { LocStorageService } from '@services/loc-storage.service'
 	styleUrls: ['./shop.component.scss'],
 	templateUrl: './shop.component.html'
 })
-export class ShopComponent implements OnInit {
-	public goldBars = 0
-
-	public ngOnInit() {
-		this.goldBars = this.locStorageService.loadGoldBars()
-	}
-
+export class ShopComponent {
 	public onExchangeBarForCoins() {
 		const refund = Math.round(1 / LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 		const removalAmount = Math.round(refund * LocStorageService.EXCHANGE_RATE_GOLD_BAR)
 
-		if (this.goldBars < 1) {
+		if (this.gameService.goldBars < 1) {
 			alert('Insufficient gold bars, need at least 1')
 			return
 		}
 
 		this.gameService.coins += refund
-		this.goldBars -= removalAmount
-
-		this.locStorageService.saveGoldBars(this.goldBars)
+		this.gameService.goldBars -= removalAmount
 	}
 
 	public onExchangeCoinsForBar() {
@@ -39,17 +31,8 @@ export class ShopComponent implements OnInit {
 		}
 
 		this.gameService.coins -= cost
-		this.goldBars += additionalAmount
-
-		this.locStorageService.saveGoldBars(this.goldBars)
+		this.gameService.goldBars += additionalAmount
 	}
 
-	public onGoldBarsChanged(newGoldBars: number) {
-		this.goldBars = newGoldBars
-		this.locStorageService.saveGoldBars(this.goldBars)
-	}
-
-	constructor(
-		private readonly locStorageService: LocStorageService,
-		public readonly gameService: GameService) {}
+	constructor(public readonly gameService: GameService) {}
 }
