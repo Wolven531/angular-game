@@ -26,7 +26,6 @@ export class ShopComponent implements OnInit {
 		this.gameService.coins += refund
 		this.goldBars -= removalAmount
 
-		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 
@@ -42,7 +41,6 @@ export class ShopComponent implements OnInit {
 		this.gameService.coins -= cost
 		this.goldBars += additionalAmount
 
-		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveGoldBars(this.goldBars)
 	}
 

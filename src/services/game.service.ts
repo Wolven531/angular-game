@@ -13,6 +13,7 @@ export class GameService {
 	}
 	public set coins(newNum: number) {
 		this._coins = newNum
+		this.locStorageService.saveCoins(this._coins)
 	}
 
 	public get numSoldiers(): number {

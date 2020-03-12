@@ -29,8 +29,6 @@ export class GameComponent implements OnInit {
 
 	public onGenerateCoin() {
 		this.gameService.coins += LocStorageService.EXCHANGE_RATE_COIN
-
-		this.locStorageService.saveCoins(this.gameService.coins)
 	}
 
 	public onMinionRefunded(minionIndex: number) {
@@ -43,7 +41,6 @@ export class GameComponent implements OnInit {
 
 		this.gameService.coins += refundAmount
 
-		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 
@@ -56,7 +53,6 @@ export class GameComponent implements OnInit {
 		this.minions.push(newMinion)
 
 		this.gameService.coins -= LocStorageService.EXCHANGE_RATE_MINION
-		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 
@@ -90,7 +86,6 @@ export class GameComponent implements OnInit {
 
 		this.loggerService.logMulti(constructedMsg)
 
-		this.locStorageService.saveCoins(this.gameService.coins)
 		this.locStorageService.saveMinions(this.minions)
 	}
 }
