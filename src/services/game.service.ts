@@ -21,6 +21,7 @@ export class GameService {
 	}
 	public set numSoldiers(newNum: number) {
 		this._numSoldiers = newNum
+		this.locStorageService.saveNumSoldiers(this._numSoldiers)
 	}
 
 	constructor(private readonly locStorageService: LocStorageService) {

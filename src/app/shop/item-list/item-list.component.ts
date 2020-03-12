@@ -22,10 +22,7 @@ export class ItemListComponent {
 		this.gameService.numSoldiers += 1
 
 		this.goldBarsChanged.emit(this.goldBars)
-		this.locStorageService.saveNumSoldiers(this.gameService.numSoldiers)
 	}
 
-	constructor(
-		private readonly locStorageService: LocStorageService,
-		public readonly gameService: GameService) {}
+	constructor(public readonly gameService: GameService) {}
 }
