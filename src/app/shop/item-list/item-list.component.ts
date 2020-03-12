@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { GameService } from '@services/game.service'
-import { LocStorageService } from '@services/loc-storage.service'
 
 @Component({
 	selector: 'ag-item-list',
