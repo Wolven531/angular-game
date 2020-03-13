@@ -31,6 +31,18 @@ export class GameComponent implements OnInit {
 		this.gameService.coins += LocStorageService.EXCHANGE_RATE_COIN
 	}
 
+	public onMinionHealed(minionIndex: number) {
+		const minion = this.minions[minionIndex]
+		minion.spendXp(10)
+		minion.heal()
+
+		this.gameService.coins -= 3
+
+		this.loggerService.log(`🚑 - ${minion.name} healed. Spent coin: ${3}. Spent XP: ${10}`)
+
+		this.locStorageService.saveMinions(this.minions)
+	}
+
 	public onMinionRefunded(minionIndex: number) {
 		const minion = this.minions[minionIndex]
 		this.minions.splice(minionIndex, 1)

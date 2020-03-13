@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Minion } from '@models/minion.model'
+import { GameService } from '@services/game.service'
 import { LoggerService } from '@services/logger.service'
 
 @Component({
@@ -11,6 +12,8 @@ export class QuesterComponent {
 	@Input()
 	minion: Minion
 	@Output()
+	minionHealed = new EventEmitter()
+	@Output()
 	minionRefunded = new EventEmitter()
 	@Output()
 	questCompleted = new EventEmitter()
@@ -20,7 +23,13 @@ export class QuesterComponent {
 	questProgress = 0
 	questTimer // NOTE: NodeJS.Timeout is the type, but tsconfig won't play nicely
 
-	constructor(private loggerService: LoggerService) {}
+	constructor(
+		private readonly loggerService: LoggerService,
+		public readonly gameService: GameService) {}
+
+	onHealMinion() {
+		this.minionHealed.emit()
+	}
 
 	onRefundMinion() {
 		this.minionRefunded.emit()

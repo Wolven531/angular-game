@@ -6,4 +6,7 @@
 		(click)="onStartQuest(minion)">Start Quest</button>
 	<button class="btn-refund-minion"
 		(click)="onRefundMinion()">Refund for 75%</button>
+	<button class="btn-heal-minion"
+		[disabled]="!minion.hasTakenDamage || gameService.coins < 3 || minion.xp < 10"
+		(click)="onHealMinion()">Heal Minion for 3 coins and 10 XP</button>
 </article>

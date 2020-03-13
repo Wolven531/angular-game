@@ -5,6 +5,19 @@
 	button {
 		margin: 0;
 
+		&.btn-heal-minion {
+			$bg-color: rgb(255, 128, 0, 0.75);
+			background-color: $bg-color;
+	
+			&:hover {
+				background-color: lighten($bg-color, 15%);
+			}
+
+			&[disabled] {
+				background-color: grayscale($bg-color);
+			}
+		}
+
 		&.btn-refund-minion {
 			$bg-color: rgba(0, 170, 200, 0.75);
 			background-color: $bg-color;
