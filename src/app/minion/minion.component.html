@@ -7,8 +7,11 @@
 	<dd>{{minion.name}}</dd>
 	<dt>Hitpoints</dt>
 	<dd>{{minion.hitpointsRemaining}} / {{minion.hitpoints}}</dd>
-	<dt>Attack (+ <span class="value">{{gameService.numSoldiers}}</span>)</dt>
-	<dd>{{minion.attack + gameService.numSoldiers}}</dd>
+	<dt>Attack</dt>
+	<dd>{{minion.attack}}
+		(+<span class="value">{{gameService.numSoldiers}}</span>)
+		= <span class="value">{{minion.attack + gameService.numSoldiers}}</span>
+	</dd>
 	<dt>Defense</dt>
 	<dd>{{minion.defense}}</dd>
 	<dt>XP</dt>

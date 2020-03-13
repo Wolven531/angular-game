@@ -2,23 +2,21 @@
 	background-color: rgba(0, 0, 0, .1);
 	border: 1px solid #fff;
 	color: #fff;
-	margin: 0 5px;
-	margin-block-start: 0;
 	margin-block-end: 0;
+	margin-block-start: 0;
 	padding: 5px;
-	width: 100px;
 
 	dd {
 		color: #0f0;
 		text-align: right;
-	}
-
-	dt {
-		font-weight: bold;
 
 		.value {
 			color: rgba(255,255,0,.9);
 			font-weight: bold;
 		}
+	}
+
+	dt {
+		font-weight: bold;
 	}
 }
