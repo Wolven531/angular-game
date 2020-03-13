@@ -14,6 +14,10 @@ export class Minion {
 		return this._defense
 	}
 
+	public get hasTakenDamage(): boolean {
+		return this._damageTaken > 0
+	}
+
 	public get hitpoints(): number {
 		return this._hp
 	}
@@ -37,7 +41,13 @@ export class Minion {
 	public addXp(additionalXp: number) {
 		this._xpEarned += additionalXp
 	}
+	public spendXp(costXp: number) {
+		this._xpEarned -= costXp
+	}
 
+	public heal() {
+		this._damageTaken = 0
+	}
 	public takeDamage(amountTaken: number) {
 		this._damageTaken += amountTaken
 	}
