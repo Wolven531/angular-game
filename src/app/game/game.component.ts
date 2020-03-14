@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { GameService } from '@services/game.service'
 import { LocStorageService } from '@services/loc-storage.service'
@@ -10,18 +10,12 @@ import { NameGeneratorService } from '@services/name-gen.service'
 	styleUrls: ['./game.component.scss'],
 	templateUrl: './game.component.html'
 })
-export class GameComponent implements OnInit {
-	public minions: Minion[] = []
-
+export class GameComponent {
 	constructor(
 		private readonly locStorageService: LocStorageService,
 		private readonly nameGenService: NameGeneratorService,
 		public readonly loggerService: LoggerService,
 		public readonly gameService: GameService) {}
-
-	public ngOnInit() {
-		this.minions = this.locStorageService.loadMinions()
-	}
 
 	public onClearLogs() {
 		this.loggerService.clearLogs()
@@ -32,28 +26,23 @@ export class GameComponent implements OnInit {
 	}
 
 	public onMinionHealed(minionIndex: number) {
-		const minion = this.minions[minionIndex]
-		minion.spendXp(10)
+		const minion = this.gameService.minions[minionIndex]
 		minion.heal()
 
-		this.gameService.coins -= 3
-
 		this.loggerService.log(`🚑 - ${minion.name} healed. Spent coin: ${3}. Spent XP: ${10}`)
-
-		this.locStorageService.saveMinions(this.minions)
+		
+		this.locStorageService.saveMinions(this.gameService.minions)
+		this.gameService.coins -= 3
 	}
 
 	public onMinionRefunded(minionIndex: number) {
-		const minion = this.minions[minionIndex]
-		this.minions.splice(minionIndex, 1)
-
+		const minion = this.gameService.minions[minionIndex]
 		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
 
 		this.loggerService.log(`🚼- ${minion.name} refunded. Earned coin: ${refundAmount}`)
 
+		this.gameService.removeMinion(minionIndex)
 		this.gameService.coins += refundAmount
-
-		this.locStorageService.saveMinions(this.minions)
 	}
 
 	public onSummonMinion() {
@@ -62,10 +51,8 @@ export class GameComponent implements OnInit {
 
 		this.loggerService.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
 
-		this.minions.push(newMinion)
-
+		this.gameService.addMinion(newMinion)
 		this.gameService.coins -= LocStorageService.EXCHANGE_RATE_MINION
-		this.locStorageService.saveMinions(this.minions)
 	}
 
 	public onQuestCompleted(minion: Minion, minionIndex: number) {
@@ -77,8 +64,6 @@ export class GameComponent implements OnInit {
 		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedAmount}. Earned XP: ${newXP}`)
 		minion.addXp(newXP)
 
-		this.gameService.coins += earnedAmount
-
 		if (dmgChance > 2) {
 			const dmg = Math.round(1 + Math.random() * 2)
 
@@ -88,7 +73,7 @@ export class GameComponent implements OnInit {
 
 			if (minion.hitpointsRemaining === 0) {
 				constructedMsg.push(`\t\t💀☠ ${minion.name} has retired due to fatigue`)
-				this.minions.splice(minionIndex, 1)
+				this.gameService.removeMinion(minionIndex)
 			} else {
 				constructedMsg.push(`\t\t💖♥ But ${minion.name} lives to fight another day w/ ${minion.hitpointsRemaining} hitpoints left`)
 			}
@@ -98,6 +83,7 @@ export class GameComponent implements OnInit {
 
 		this.loggerService.logMulti(constructedMsg)
 
-		this.locStorageService.saveMinions(this.minions)
+		this.locStorageService.saveMinions(this.gameService.minions)
+		this.gameService.coins += earnedAmount
 	}
 }

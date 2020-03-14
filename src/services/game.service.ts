@@ -27,6 +27,10 @@ export class GameService {
 		this.locStorageService.saveGoldBars(this._goldBars)
 	}
 
+	public get hasMinions(): boolean {
+		return this._minions.length > 0
+	}
+
 	public get minions(): Minion[] {
 		return this._minions
 	}

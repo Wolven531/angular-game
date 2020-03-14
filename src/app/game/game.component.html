@@ -7,9 +7,9 @@
 		class="btn-summon-minion"
 		[disabled]="gameService.coins < 10"
 		(click)="onSummonMinion()">Summon minion for 10 coins</button>
-	<h3>Minions (<span class="value">{{minions.length}}</span>)</h3>
-	<div *ngIf="minions.length > 0" class="minion-container">
-		<div *ngFor="let minion of minions; index as i">
+	<h3>Minions (<span class="value">{{gameService.minions.length}}</span>)</h3>
+	<div *ngIf="gameService.hasMinions" class="minion-container">
+		<div *ngFor="let minion of gameService.minions; index as i">
 			<ag-quester [minion]="minion"
 				(minionHealed)="onMinionHealed(i)"
 				(minionRefunded)="onMinionRefunded(i)"
