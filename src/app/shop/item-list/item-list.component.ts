@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component } from '@angular/core'
 import { GameService } from '@services/game.service'
 
 @Component({
@@ -8,11 +8,11 @@ import { GameService } from '@services/game.service'
 })
 export class ItemListComponent {
 	public onPurchaseSoldier() {
-		if (this.gameService.goldBars < 5) {
+		if (this.gameService.goldBars < this.gameService.soldierCost) {
 			return
 		}
 
-		this.gameService.goldBars -= 5
+		this.gameService.goldBars -= this.gameService.soldierCost
 		this.gameService.numSoldiers += 1
 	}
 

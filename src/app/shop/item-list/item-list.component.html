@@ -5,8 +5,8 @@
 				<h4>Soldiers ({{gameService.numSoldiers}})</h4>
 				<button
 					class="btn-purchase-soldier"
-					[disabled]="gameService.goldBars < 5"
-					(click)="onPurchaseSoldier()">Buy 1 Soldier for 5 Gold Bars</button>
+					[disabled]="gameService.goldBars < gameService.soldierCost"
+					(click)="onPurchaseSoldier()">Buy 1 Soldier for {{gameService.soldierCost}} Gold Bars</button>
 			</div>
 		</li>
 	</ul>

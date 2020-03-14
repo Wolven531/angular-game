@@ -33,6 +33,23 @@ export class GameService {
 		this.locStorageService.saveNumSoldiers(this._numSoldiers)
 	}
 
+	public get soldierCost(): number {
+		switch(this._numSoldiers) {
+		case 0:
+			return 5
+		case 1:
+			return 20
+		case 2:
+			return 100
+		case 3:
+			return 250
+		case 4:
+			return 500
+		default:
+			return (this._numSoldiers + 1) * 500
+		}
+	}
+
 	constructor(private readonly locStorageService: LocStorageService) {
 		this.init()
 	}
