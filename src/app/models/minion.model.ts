@@ -47,6 +47,7 @@ export class Minion {
 
 	public heal() {
 		this._damageTaken = 0
+		this.spendXp(10)
 	}
 	public takeDamage(amountTaken: number) {
 		this._damageTaken += amountTaken
