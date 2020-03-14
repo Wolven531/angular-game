@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
 
 @Injectable({
@@ -7,6 +8,7 @@ import { LocStorageService } from '@services/loc-storage.service'
 export class GameService {
 	private _coins: number
 	private _goldBars: number
+	private _minions: Minion[]
 	private _numSoldiers: number
 
 	public get coins(): number {
@@ -23,6 +25,10 @@ export class GameService {
 	public set goldBars(newNum: number) {
 		this._goldBars = newNum
 		this.locStorageService.saveGoldBars(this._goldBars)
+	}
+
+	public get minions(): Minion[] {
+		return this._minions
 	}
 
 	public get numSoldiers(): number {
@@ -50,6 +56,16 @@ export class GameService {
 		}
 	}
 
+	public addMinion(minion: Minion): void {
+		this._minions.push(minion)
+		this.locStorageService.saveMinions(this._minions)
+	}
+
+	public removeMinion(minionIndex: number): void {
+		this._minions.splice(minionIndex, 1)
+		this.locStorageService.saveMinions(this._minions)
+	}
+
 	constructor(private readonly locStorageService: LocStorageService) {
 		this.init()
 	}
@@ -57,6 +73,7 @@ export class GameService {
 	private init(): void {
 		this._coins = this.locStorageService.loadCoins()
 		this._goldBars = this.locStorageService.loadGoldBars()
+		this._minions = this.locStorageService.loadMinions()
 		this._numSoldiers = this.locStorageService.loadNumSoldiers()
 	}
 }
