@@ -3,7 +3,6 @@ import { Minion } from '@models/minion.model'
 import { GameService } from '@services/game.service'
 import { LocStorageService } from '@services/loc-storage.service'
 import { LoggerService } from '@services/logger.service'
-import { NameGeneratorService } from '@services/name-gen.service'
 
 @Component({
 	// selector: 'ag-game',
@@ -13,7 +12,6 @@ import { NameGeneratorService } from '@services/name-gen.service'
 export class GameComponent {
 	constructor(
 		private readonly locStorageService: LocStorageService,
-		private readonly nameGenService: NameGeneratorService,
 		public readonly loggerService: LoggerService,
 		public readonly gameService: GameService) {}
 
@@ -34,13 +32,7 @@ export class GameComponent {
 	}
 
 	public onSummonMinion() {
-		const newMinion = new Minion()
-		newMinion.name = this.nameGenService.generateName()
-
-		this.loggerService.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
-
-		this.gameService.addMinion(newMinion)
-		this.gameService.coins -= LocStorageService.EXCHANGE_RATE_MINION
+		this.gameService.summonMinion()
 	}
 
 	public onQuestCompleted(minion: Minion, minionIndex: number) {

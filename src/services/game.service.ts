@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
 import { LoggerService } from '@services/logger.service'
+import { NameGeneratorService } from './name-gen.service'
 
 @Injectable({
 	providedIn: 'root'
@@ -45,7 +46,7 @@ export class GameService {
 	}
 
 	public get soldierCost(): number {
-		switch(this._numSoldiers) {
+		switch (this._numSoldiers) {
 		case 0:
 			return 5
 		case 1:
@@ -86,13 +87,13 @@ export class GameService {
 		minion.heal()
 
 		this.loggerService.log(`🚑 - ${minion.name} healed. Spent coin: ${3}. Spent XP: ${10}`)
-		
+
 		this.locStorageService.saveMinions(this._minions)
 		this.coins -= 3
 	}
 
 	/**
-	 * Removes a minion from the collection and increases coin
+	 * Remove a minion from the collection and increase coin
 	 * @param minionIndex number - index (zero-based) of the minion to refund
 	 */
 	public refundMinion(minionIndex: number) {
@@ -106,7 +107,7 @@ export class GameService {
 	}
 
 	/**
-	 * Add a minion from the collection
+	 * Remove a minion from the collection
 	 * @param minionIndex number - index (zero-based) of the minion to remove
 	 */
 	public removeMinion(minionIndex: number): void {
@@ -114,9 +115,23 @@ export class GameService {
 		this.locStorageService.saveMinions(this._minions)
 	}
 
+	/**
+	 * Create a new minion, add it to the collection, and reduce coin
+	 */
+	public summonMinion() {
+		const newMinion = new Minion()
+		newMinion.name = this.nameGenService.generateName()
+
+		this.loggerService.log(`👶⁜ Summoned minion, ${newMinion.name}: ${JSON.stringify(newMinion)}`)
+
+		this.addMinion(newMinion)
+		this.coins -= LocStorageService.EXCHANGE_RATE_MINION
+	}
+
 	constructor(
 		private readonly locStorageService: LocStorageService,
-		private readonly loggerService: LoggerService) {
+		private readonly loggerService: LoggerService,
+		private readonly nameGenService: NameGeneratorService) {
 		this.init()
 	}
 
