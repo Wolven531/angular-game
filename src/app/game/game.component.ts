@@ -22,17 +22,11 @@ export class GameComponent {
 	}
 
 	public onGenerateCoin() {
-		this.gameService.coins += LocStorageService.EXCHANGE_RATE_COIN
+		this.gameService.generateCoin()
 	}
 
 	public onMinionHealed(minionIndex: number) {
-		const minion = this.gameService.minions[minionIndex]
-		minion.heal()
-
-		this.loggerService.log(`🚑 - ${minion.name} healed. Spent coin: ${3}. Spent XP: ${10}`)
-		
-		this.locStorageService.saveMinions(this.gameService.minions)
-		this.gameService.coins -= 3
+		this.gameService.healMinion(minionIndex)
 	}
 
 	public onMinionRefunded(minionIndex: number) {

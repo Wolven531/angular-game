@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
+import { LoggerService } from '@services/logger.service'
 
 @Injectable({
 	providedIn: 'root'
@@ -60,17 +61,49 @@ export class GameService {
 		}
 	}
 
+	/**
+	 * Add a minion to the collection
+	 * @param minion Minion - the minion to be added to the collection
+	 */
 	public addMinion(minion: Minion): void {
 		this._minions.push(minion)
 		this.locStorageService.saveMinions(this._minions)
 	}
 
+	/**
+	 * Add coin
+	 * @description Uses the public setter (for save functionality) to increase coin amount
+	 */
+	public generateCoin() {
+		this.coins += LocStorageService.EXCHANGE_RATE_COIN
+	}
+
+	/**
+	 * Heal a minion in the collection
+	 * @param minionIndex number - index (zero-based) of the minion to heal
+	 */
+	public healMinion(minionIndex: number) {
+		const minion = this._minions[minionIndex]
+		minion.heal()
+
+		this.loggerService.log(`🚑 - ${minion.name} healed. Spent coin: ${3}. Spent XP: ${10}`)
+		
+		this.locStorageService.saveMinions(this._minions)
+		this.coins -= 3
+	}
+
+	/**
+	 * Add a minion from the collection
+	 * @param minionIndex number - index (zero-based) of the minion to remove
+	 */
 	public removeMinion(minionIndex: number): void {
 		this._minions.splice(minionIndex, 1)
 		this.locStorageService.saveMinions(this._minions)
 	}
 
-	constructor(private readonly locStorageService: LocStorageService) {
+	constructor(
+		private readonly locStorageService: LocStorageService,
+		private readonly loggerService: LoggerService) {
 		this.init()
 	}
 
