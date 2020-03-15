@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Minion } from '@models/minion.model'
 import { LocStorageService } from '@services/loc-storage.service'
 import { LoggerService } from '@services/logger.service'
-import { NameGeneratorService } from './name-gen.service'
+import { NameGeneratorService } from '@services/name-gen.service'
 
 @Injectable({
 	providedIn: 'root'
@@ -72,6 +72,44 @@ export class GameService {
 	}
 
 	/**
+	 * Complete a quest for a minion - this earns gold, XP, and potential damage on the minion
+	 * @param minionIndex number - index (zero-based) of the minion for which quest logic will be executed
+	 */
+	public completeQuest(minionIndex: number) {
+		const constructedMsg: string[] = []
+		const dmgChance = Math.round(Math.random() * 3)
+		const earnedXP = Math.round(1 + Math.random() * 2)
+		const minion = this._minions[minionIndex]
+
+		const earnedCoin = this._numSoldiers + minion.attack
+
+		constructedMsg.push(`💰$ ${minion.name} completed a quest. Earned coin: ${earnedCoin}. Earned XP: ${earnedXP}`)
+		minion.addXp(earnedXP)
+
+		if (dmgChance > 2) {
+			const dmg = Math.round(1 + Math.random() * 2)
+
+			constructedMsg.push(`\t🤺⚔ ${minion.name} takes damage: ${dmg}`)
+
+			minion.takeDamage(dmg)
+
+			if (minion.hitpointsRemaining === 0) {
+				constructedMsg.push(`\t\t💀☠ ${minion.name} has retired due to fatigue`)
+				this.removeMinion(minionIndex, false)
+			} else {
+				constructedMsg.push(`\t\t💖♥ But ${minion.name} lives to fight another day w/ ${minion.hitpointsRemaining} hitpoints left`)
+			}
+		} else {
+			constructedMsg.push(`\t💖♥ ${minion.name} ventures on untouched w/ ${minion.hitpointsRemaining} hitpoints left`)
+		}
+
+		this.loggerService.logMulti(constructedMsg)
+
+		this.locStorageService.saveMinions(this._minions)
+		this.coins += earnedCoin
+	}
+
+	/**
 	 * Increase coin
 	 */
 	public generateCoin() {
@@ -110,9 +148,12 @@ export class GameService {
 	 * Remove a minion from the collection
 	 * @param minionIndex number - index (zero-based) of the minion to remove
 	 */
-	public removeMinion(minionIndex: number): void {
+	public removeMinion(minionIndex: number, shouldSave = true): void {
 		this._minions.splice(minionIndex, 1)
-		this.locStorageService.saveMinions(this._minions)
+
+		if (shouldSave) {
+			this.locStorageService.saveMinions(this._minions)
+		}
 	}
 
 	/**
