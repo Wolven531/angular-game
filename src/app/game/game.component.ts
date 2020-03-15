@@ -30,13 +30,7 @@ export class GameComponent {
 	}
 
 	public onMinionRefunded(minionIndex: number) {
-		const minion = this.gameService.minions[minionIndex]
-		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
-
-		this.loggerService.log(`🚼- ${minion.name} refunded. Earned coin: ${refundAmount}`)
-
-		this.gameService.removeMinion(minionIndex)
-		this.gameService.coins += refundAmount
+		this.gameService.refundMinion(minionIndex)
 	}
 
 	public onSummonMinion() {

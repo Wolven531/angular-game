@@ -71,8 +71,7 @@ export class GameService {
 	}
 
 	/**
-	 * Add coin
-	 * @description Uses the public setter (for save functionality) to increase coin amount
+	 * Increase coin
 	 */
 	public generateCoin() {
 		this.coins += LocStorageService.EXCHANGE_RATE_COIN
@@ -90,6 +89,20 @@ export class GameService {
 		
 		this.locStorageService.saveMinions(this._minions)
 		this.coins -= 3
+	}
+
+	/**
+	 * Removes a minion from the collection and increases coin
+	 * @param minionIndex number - index (zero-based) of the minion to refund
+	 */
+	public refundMinion(minionIndex: number) {
+		const minion = this._minions[minionIndex]
+		const refundAmount = Math.round(LocStorageService.EXCHANGE_RATE_MINION * .75)
+
+		this.loggerService.log(`🚼- ${minion.name} refunded. Earned coin: ${refundAmount}`)
+
+		this.removeMinion(minionIndex)
+		this.coins += refundAmount
 	}
 
 	/**
