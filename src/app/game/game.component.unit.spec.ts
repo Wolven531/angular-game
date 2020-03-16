@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-// import { GameService } from '@services/game.service'
+import { GameService } from '@services/game.service'
 import { LoggerService } from '@services/logger.service'
 import { GameComponent } from './game.component'
 
@@ -39,6 +39,22 @@ describe('GameComponent', () => {
 	
 			it('invokes clearLogs in LoggerService', () => {
 				expect(spyClearLogs).toHaveBeenCalledTimes(1)
+			})
+		})
+
+		describe('when onGenerateCoin is invoked', () => {
+			let gameService: GameService
+			let spyGenerateCoin: jasmine.Spy
+	
+			beforeEach(() => {
+				gameService = fixture.debugElement.injector.get(GameService)
+				spyGenerateCoin = spyOn(gameService, 'generateCoin')
+				fixture.componentInstance.onGenerateCoin()
+				fixture.detectChanges()
+			})
+	
+			it('invokes generateCoin in GameService', () => {
+				expect(spyGenerateCoin).toHaveBeenCalledTimes(1)
 			})
 		})
 	})
