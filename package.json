@@ -20,7 +20,7 @@
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test"
   },
-  "version": "0.50.0",
+  "version": "0.51.0",
   "dependencies": {
     "@angular/animations": "~9.0.1",
     "@angular/common": "~9.0.1",
@@ -40,8 +40,9 @@
     "@angular/cli": "~9.0.2",
     "@angular/compiler-cli": "~9.0.1",
     "@angular/language-service": "~9.0.1",
-    "@types/jasmine": "~3.3.8",
+    "@types/jasmine": "^3.3.16",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jest": "^25.1.4",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
