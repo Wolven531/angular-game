@@ -57,5 +57,22 @@ describe('GameComponent', () => {
 				expect(spyGenerateCoin).toHaveBeenCalledTimes(1)
 			})
 		})
+
+		describe('when onMinionHealed is invoked', () => {
+			let gameService: GameService
+			let spyHealMinion: jasmine.Spy
+	
+			beforeEach(() => {
+				gameService = fixture.debugElement.injector.get(GameService)
+				spyHealMinion = spyOn(gameService, 'healMinion')
+				fixture.componentInstance.onMinionHealed(0)
+				fixture.detectChanges()
+			})
+	
+			it('invokes healMinion in GameService', () => {
+				expect(spyHealMinion).toHaveBeenCalledTimes(1)
+				expect(spyHealMinion).toHaveBeenCalledWith(0)
+			})
+		})
 	})
 })
