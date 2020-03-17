@@ -91,5 +91,22 @@ describe('GameComponent', () => {
 				expect(spyRefundMinion).toHaveBeenCalledWith(1)
 			})
 		})
+
+		describe('when onQuestCompleted is invoked', () => {
+			let gameService: GameService
+			let spyCompleteQuest: jasmine.Spy
+	
+			beforeEach(() => {
+				gameService = fixture.debugElement.injector.get(GameService)
+				spyCompleteQuest = spyOn(gameService, 'completeQuest')
+				fixture.componentInstance.onQuestCompleted(2)
+				fixture.detectChanges()
+			})
+	
+			it('invokes completeQuest in GameService', () => {
+				expect(spyCompleteQuest).toHaveBeenCalledTimes(1)
+				expect(spyCompleteQuest).toHaveBeenCalledWith(2)
+			})
+		})
 	})
 })
