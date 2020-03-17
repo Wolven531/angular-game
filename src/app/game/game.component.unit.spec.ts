@@ -74,5 +74,22 @@ describe('GameComponent', () => {
 				expect(spyHealMinion).toHaveBeenCalledWith(0)
 			})
 		})
+
+		describe('when onMinionRefunded is invoked', () => {
+			let gameService: GameService
+			let spyRefundMinion: jasmine.Spy
+	
+			beforeEach(() => {
+				gameService = fixture.debugElement.injector.get(GameService)
+				spyRefundMinion = spyOn(gameService, 'refundMinion')
+				fixture.componentInstance.onMinionRefunded(1)
+				fixture.detectChanges()
+			})
+	
+			it('invokes refundMinion in GameService', () => {
+				expect(spyRefundMinion).toHaveBeenCalledTimes(1)
+				expect(spyRefundMinion).toHaveBeenCalledWith(1)
+			})
+		})
 	})
 })
