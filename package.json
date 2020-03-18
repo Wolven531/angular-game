@@ -20,7 +20,7 @@
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test"
   },
-  "version": "0.57.0",
+  "version": "0.58.0",
   "dependencies": {
     "@angular/animations": "~9.0.1",
     "@angular/common": "~9.0.1",
@@ -33,19 +33,19 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "tslib": "^1.11.1",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.2",
     "@angular/cli": "~9.0.2",
     "@angular/compiler-cli": "~9.0.1",
     "@angular/language-service": "~9.0.1",
-    "@types/jasmine": "^3.3.16",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/jasmine": "^3.5.9",
+    "@types/jasminewd2": "^2.0.8",
     "@types/jest": "^25.1.4",
-    "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "^2.22.0",
-    "@typescript-eslint/parser": "^2.22.0",
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "codelyzer": "^5.2.1",
     "eslint": "^6.8.0",
     "jasmine-core": "^3.5.0",
@@ -58,6 +58,7 @@
     "protractor": "^5.4.3",
     "puppeteer": "^2.1.1",
     "ts-node": "^8.6.2",
+    "tslint": "^5.20.1",
     "typescript": "~3.7.5"
   }
 }
