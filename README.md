@@ -1,6 +1,7 @@
 # AngularGame
 
-![Node.js + Puppeteer CI / CD](https://github.com/Wolven531/angular-game/workflows/Node.js%20+%20Puppeteer%20CI%20/%20CD/badge.svg)
+[![Node.js + Puppeteer CI / CD](https://github.com/Wolven531/angular-game/workflows/Node.js%20+%20Puppeteer%20CI%20/%20CD/badge.svg)](https://github.com/Wolven531/angular-game/actions?query=workflow%3A%22Node.js+%2B+Puppeteer+CI+%2F+CD%22)
+[![Angular Game](https://circleci.com/gh/Wolven531/angular-game.svg?style=shield)](https://app.circleci.com/pipelines/github/Wolven531/angular-game)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
