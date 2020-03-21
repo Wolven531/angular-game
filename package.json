@@ -18,9 +18,10 @@
     "start": "ng serve",
     "start:open": "ng serve --open",
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "test:coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test"
   },
-  "version": "0.62.0",
+  "version": "0.63.0",
   "dependencies": {
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
