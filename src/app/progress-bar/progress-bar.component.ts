@@ -13,6 +13,8 @@ export class ProgressBarComponent {
 	@Input()
 	colorStartingToComplete = '#f00'
 	@Input()
+	shouldUseSVG = false
+	@Input()
 	shouldUseDynamicColoring = true
 	@Input()
 	thresholdAlmostComplete = 88
