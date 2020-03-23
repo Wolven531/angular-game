@@ -1,11 +1,16 @@
 <div class="progress-bar">
 	<svg *ngIf="shouldUseSVG; else nonSVG"
-		viewBox="0, 0, 100, 10" height="50px" width="100px">
-		<rect [attr.width]="value" height="10px" fill="colorAlmostComplete"></rect>
+		viewBox="0, 0, 100, 8">
+		<rect
+			[ngStyle]="{ fill: value > thresholdAlmostComplete ? colorAlmostComplete : (value > thresholdHalfComplete ? colorHalfComplete : colorStartingToComplete) }"
+			[attr.width]="value"
+			class="bar"
+			></rect>
 	</svg>
 	<ng-template #nonSVG>
 		<div *ngIf="shouldUseDynamicColoring; else elseBlock"
-			[ngStyle]="{ backgroundColor: value > thresholdAlmostComplete ? colorAlmostComplete : (value > thresholdHalfComplete ? colorHalfComplete : colorStartingToComplete), width: value + '%' }" class="bar"></div>
+			[ngStyle]="{ backgroundColor: value > thresholdAlmostComplete ? colorAlmostComplete : (value > thresholdHalfComplete ? colorHalfComplete : colorStartingToComplete), width: value + '%' }"
+			class="bar"></div>
 		<ng-template #elseBlock>
 			<div [ngStyle]="{ backgroundColor: colorAlmostComplete, width: value + '%' }" class="bar"></div>
 		</ng-template>
