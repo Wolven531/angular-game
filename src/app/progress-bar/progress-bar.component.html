@@ -1,7 +1,7 @@
 <div class="progress-bar">
 	<svg *ngIf="shouldUseSVG; else nonSVG"
 		viewBox="0, 0, 100, 10" height="50px" width="100px">
-		<rect [attr.width]="value" height="10px" [fill]="colorAlmostComplete"></rect>
+		<rect [attr.width]="value" height="10px" fill="colorAlmostComplete"></rect>
 	</svg>
 	<ng-template #nonSVG>
 		<div *ngIf="shouldUseDynamicColoring; else elseBlock"
