@@ -1,3 +1,4 @@
+/* global __dirname, require */
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
@@ -13,7 +14,13 @@ module.exports = function (config) {
 		coverageIstanbulReporter: {
 			dir: require('path').join(__dirname, './coverage/angular-game'),
 			fixWebpackSourcePaths: true,
-			reports: ['html', 'lcovonly', 'text-summary']
+			reports: ['html', 'lcovonly', 'text-summary'],
+			thresholds: {
+				statements: 10,
+				lines: 10,
+				branches: 10,
+				functions: 10
+			}
 		},
 		customLaunchers: {
 			ChromeHeadlessCustom: {
