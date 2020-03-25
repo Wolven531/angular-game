@@ -21,7 +21,7 @@ describe('GameComponent', () => {
 			fixture.detectChanges() // necessary to run ngOnInit()
 		})
 
-		it('creates game component and invokes svc.loadCoins', () => {
+		it('creates game component', () => {
 			expect(fixture.debugElement.componentInstance).toBeTruthy()
 		})
 
