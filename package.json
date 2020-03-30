@@ -27,7 +27,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.14",
+  "version": "0.67.15",
   "dependencies": {
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
@@ -44,8 +44,8 @@
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.7",
-    "@angular/cli": "~9.0.7",
+    "@angular-devkit/build-angular": "~0.901.0",
+    "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.0.7",
     "@types/jasmine": "^3.5.10",
     "@types/jasminewd2": "^2.0.8",
