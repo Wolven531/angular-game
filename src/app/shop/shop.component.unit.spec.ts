@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { GameService } from '@services/game.service'
 import { ItemListComponent } from './item-list/item-list.component'
 import { ShopComponent } from './shop.component'
 
@@ -68,6 +69,26 @@ describe('ShopComponent', () => {
 				const exchangeBarsDisabledAtt = buttons.item(1).getAttributeNode('disabled')
 				expect(exchangeBarsDisabledAtt).not.toBeNull()
 				expect(exchangeBarsDisabledAtt.value).toBe('')
+			})
+
+			describe('exchanging bar for coins w/ insufficient coins', () => {
+				let gameServiceInstance: GameService
+				let origBars: number
+				let origCoins: number
+
+				beforeEach(() => {
+					gameServiceInstance = TestBed.inject(GameService)
+					origBars = gameServiceInstance.goldBars
+					origCoins = gameServiceInstance.coins
+
+					fixture.componentInstance.onExchangeBarForCoins()
+					fixture.detectChanges()
+				})
+
+				it('does not update game service coins or bars', () => {
+					expect(gameServiceInstance.coins).toBe(origCoins)
+					expect(gameServiceInstance.goldBars).toBe(origBars)
+				})
 			})
 		})
 	})
