@@ -5,6 +5,7 @@ services:
     image: angular-game
     build: .
     environment:
-      NODE_ENV: production
+      #NODE_ENV: production
+      NODE_ENV: development
     ports:
       - 4200:4200
