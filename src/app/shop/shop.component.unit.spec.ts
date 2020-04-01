@@ -12,7 +12,7 @@ describe('ShopComponent', () => {
 					ShopComponent
 				]
 			})
-			.compileComponents()
+				.compileComponents()
 		})
 	)
 
@@ -82,6 +82,26 @@ describe('ShopComponent', () => {
 					origCoins = gameServiceInstance.coins
 
 					fixture.componentInstance.onExchangeBarForCoins()
+					fixture.detectChanges()
+				})
+
+				it('does not update game service coins or bars', () => {
+					expect(gameServiceInstance.coins).toBe(origCoins)
+					expect(gameServiceInstance.goldBars).toBe(origBars)
+				})
+			})
+
+			describe('exchanging coins for bars w/ insufficient coins', () => {
+				let gameServiceInstance: GameService
+				let origBars: number
+				let origCoins: number
+
+				beforeEach(() => {
+					gameServiceInstance = TestBed.inject(GameService)
+					origBars = gameServiceInstance.goldBars
+					origCoins = gameServiceInstance.coins
+
+					fixture.componentInstance.onExchangeCoinsForBar()
 					fixture.detectChanges()
 				})
 
