@@ -47,7 +47,17 @@ describe('ShopComponent', () => {
 		})
 
 		describe('when changes are detected', () => {
+			let gameServiceInstance: GameService
+			let origBars: number
+			let origCoins: number
+
 			beforeEach(() => {
+				gameServiceInstance = TestBed.inject(GameService)
+				gameServiceInstance.coins = 0
+				gameServiceInstance.goldBars = 0
+				origBars = gameServiceInstance.goldBars
+				origCoins = gameServiceInstance.coins
+
 				fixture.detectChanges()
 			})
 
@@ -72,15 +82,7 @@ describe('ShopComponent', () => {
 			})
 
 			describe('exchanging bar for coins w/ insufficient coins', () => {
-				let gameServiceInstance: GameService
-				let origBars: number
-				let origCoins: number
-
 				beforeEach(() => {
-					gameServiceInstance = TestBed.inject(GameService)
-					origBars = gameServiceInstance.goldBars
-					origCoins = gameServiceInstance.coins
-
 					fixture.componentInstance.onExchangeBarForCoins()
 					fixture.detectChanges()
 				})
@@ -92,15 +94,7 @@ describe('ShopComponent', () => {
 			})
 
 			describe('exchanging coins for bars w/ insufficient coins', () => {
-				let gameServiceInstance: GameService
-				let origBars: number
-				let origCoins: number
-
 				beforeEach(() => {
-					gameServiceInstance = TestBed.inject(GameService)
-					origBars = gameServiceInstance.goldBars
-					origCoins = gameServiceInstance.coins
-
 					fixture.componentInstance.onExchangeCoinsForBar()
 					fixture.detectChanges()
 				})
