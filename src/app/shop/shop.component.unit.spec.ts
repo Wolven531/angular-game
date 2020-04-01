@@ -81,7 +81,7 @@ describe('ShopComponent', () => {
 				expect(exchangeBarsDisabledAtt.value).toBe('')
 			})
 
-			describe('exchanging bar for coins w/ insufficient coins', () => {
+			describe('exchanging bar for coins w/ insufficient bars', () => {
 				beforeEach(() => {
 					fixture.componentInstance.onExchangeBarForCoins()
 					fixture.detectChanges()
@@ -116,9 +116,26 @@ describe('ShopComponent', () => {
 					fixture.detectChanges()
 				})
 
-				it('updates game service coins and bars', () => {
+				it('increases game service coins and decreases bars', () => {
 					expect(gameServiceInstance.coins).toBe(origCoins + 10)
 					expect(gameServiceInstance.goldBars).toBe(origBars - 1)
+				})
+			})
+
+			describe('exchanging coins for bar w/ sufficient coins', () => {
+				beforeEach(() => {
+					gameServiceInstance.coins = 10
+					gameServiceInstance.goldBars = 5
+					origBars = gameServiceInstance.goldBars
+					origCoins = gameServiceInstance.coins
+
+					fixture.componentInstance.onExchangeCoinsForBar()
+					fixture.detectChanges()
+				})
+
+				it('decreases game service coins and increases bars', () => {
+					expect(gameServiceInstance.coins).toBe(origCoins - 10)
+					expect(gameServiceInstance.goldBars).toBe(origBars + 1)
 				})
 			})
 		})
