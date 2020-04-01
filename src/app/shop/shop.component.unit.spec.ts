@@ -104,6 +104,23 @@ describe('ShopComponent', () => {
 					expect(gameServiceInstance.goldBars).toBe(origBars)
 				})
 			})
+
+			describe('exchanging bar for coins w/ sufficient coins', () => {
+				beforeEach(() => {
+					gameServiceInstance.coins = 10
+					gameServiceInstance.goldBars = 5
+					origBars = gameServiceInstance.goldBars
+					origCoins = gameServiceInstance.coins
+
+					fixture.componentInstance.onExchangeBarForCoins()
+					fixture.detectChanges()
+				})
+
+				it('updates game service coins and bars', () => {
+					expect(gameServiceInstance.coins).toBe(origCoins + 10)
+					expect(gameServiceInstance.goldBars).toBe(origBars - 1)
+				})
+			})
 		})
 	})
 })
