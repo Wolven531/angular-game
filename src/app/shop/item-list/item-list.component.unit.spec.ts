@@ -54,6 +54,25 @@ describe('ItemListComponent', () => {
 					expect(gameServiceInstance.numSoldiers).toBe(origNumSoldiers)
 				})
 			})
+
+			describe('purchase soldier w/ sufficient bars', () => {
+				beforeEach(() => {
+					gameServiceInstance.goldBars = 10
+					origBars = gameServiceInstance.goldBars
+					fixture.componentInstance.onPurchaseSoldier()
+					fixture.detectChanges()
+				})
+
+				it('updates game service bars and soldiers', () => {
+					expect(gameServiceInstance.goldBars).toBe(origBars - 5)
+					expect(gameServiceInstance.numSoldiers).toBe(origNumSoldiers + 1)
+				})
+
+				it('renders soldiers header w/ updated value', () => {
+					expect(compiled.querySelector('.item-list-container h4.num-soldiers').textContent).toBe('Soldiers (1)')
+					// expect(compiled.querySelector('.item-list-container h4.num-soldiers > .value').textContent).toBe('1')
+				})
+			})
 		})
 	})
 })
