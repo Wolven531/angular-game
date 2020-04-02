@@ -26,14 +26,14 @@ describe('ItemListComponent', () => {
 		describe('when changes are detected', () => {
 			let gameServiceInstance: GameService
 			let origBars: number
-			let origCoins: number
+			let origNumSoldiers: number
 
 			beforeEach(() => {
 				gameServiceInstance = TestBed.inject(GameService)
-				gameServiceInstance.coins = 0
 				gameServiceInstance.goldBars = 0
+				gameServiceInstance.numSoldiers = 0
 				origBars = gameServiceInstance.goldBars
-				origCoins = gameServiceInstance.coins
+				origNumSoldiers = gameServiceInstance.numSoldiers
 
 				fixture.detectChanges()
 			})
@@ -41,6 +41,18 @@ describe('ItemListComponent', () => {
 			it('renders soldiers header (w/ value)', () => {
 				expect(compiled.querySelector('.item-list-container h4.num-soldiers').textContent).toBe('Soldiers (0)')
 				// expect(compiled.querySelector('.item-list-container h4.num-soldiers > .value').textContent).toBe('0')
+			})
+
+			describe('purchase soldier w/ insufficient bars', () => {
+				beforeEach(() => {
+					fixture.componentInstance.onPurchaseSoldier()
+					fixture.detectChanges()
+				})
+
+				it('does not update game service bars or soldiers', () => {
+					expect(gameServiceInstance.goldBars).toBe(origBars)
+					expect(gameServiceInstance.numSoldiers).toBe(origNumSoldiers)
+				})
 			})
 		})
 	})
