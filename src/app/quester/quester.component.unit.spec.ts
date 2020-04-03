@@ -50,6 +50,19 @@ describe('QuesterComponent', () => {
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').textContent).toBe('Heal Minion for 3 coins and 10 XP')
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled')).toBeNull()
 			})
+
+			describe('click heal button', () => {
+				let spyMinionHealedEmit: jasmine.Spy
+
+				beforeEach(() => {
+					spyMinionHealedEmit = spyOn(fixture.componentInstance.minionHealed, 'emit')
+					compiled.querySelector('.quester-container > button.btn-heal-minion').dispatchEvent(new Event('click'))
+				})
+
+				it('emits minionedHealed event', () => {
+					expect(spyMinionHealedEmit).toHaveBeenCalledTimes(1)
+				})
+			})
 		})
 	})
 })
