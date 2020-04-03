@@ -31,8 +31,13 @@ describe('QuesterComponent', () => {
 
 			it('renders start, refund, and heal buttons', () => {
 				expect(compiled.querySelector('.quester-container > button.btn-start-quest').textContent).toBe('Start Quest')
+				expect(compiled.querySelector('.quester-container > button.btn-start-quest').getAttributeNode('disabled')).toBeNull()
+
 				expect(compiled.querySelector('.quester-container > button.btn-refund-minion').textContent).toBe('Refund for 75%')
+				expect(compiled.querySelector('.quester-container > button.btn-refund-minion').getAttributeNode('disabled')).toBeNull()
+
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').textContent).toBe('Heal Minion for 3 coins and 10 XP')
+				// expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled')).toBeNull()
 			})
 		})
 	})
