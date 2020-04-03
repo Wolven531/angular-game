@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { Minion } from '@models/minion.model'
+import { GameService } from '@services/game.service'
 import { QuesterComponent } from './quester.component'
 
 describe('QuesterComponent', () => {
@@ -25,7 +26,17 @@ describe('QuesterComponent', () => {
 		})
 
 		describe('when changes are detected', () => {
+			let gameServiceInstance: GameService
+			// let origBars: number
+			// let origCoins: number
+
 			beforeEach(() => {
+				gameServiceInstance = TestBed.inject(GameService)
+				gameServiceInstance.coins = 5
+				gameServiceInstance.goldBars = 0
+				// origBars = gameServiceInstance.goldBars
+				// origCoins = gameServiceInstance.coins
+
 				fixture.detectChanges()
 			})
 
@@ -37,7 +48,7 @@ describe('QuesterComponent', () => {
 				expect(compiled.querySelector('.quester-container > button.btn-refund-minion').getAttributeNode('disabled')).toBeNull()
 
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').textContent).toBe('Heal Minion for 3 coins and 10 XP')
-				// expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled')).toBeNull()
+				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled')).toBeNull()
 			})
 		})
 	})
