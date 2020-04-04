@@ -63,6 +63,19 @@ describe('QuesterComponent', () => {
 					expect(spyMinionHealedEmit).toHaveBeenCalledTimes(1)
 				})
 			})
+
+			describe('click refund button', () => {
+				let spyMinionRefundedEmit: jasmine.Spy
+
+				beforeEach(() => {
+					spyMinionRefundedEmit = spyOn(fixture.componentInstance.minionRefunded, 'emit')
+					compiled.querySelector('.quester-container > button.btn-refund-minion').dispatchEvent(new Event('click'))
+				})
+
+				it('emits minionedRefunded event', () => {
+					expect(spyMinionRefundedEmit).toHaveBeenCalledTimes(1)
+				})
+			})
 		})
 	})
 })
