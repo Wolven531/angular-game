@@ -25,7 +25,7 @@ describe('QuesterComponent', () => {
 			expect(fixture.debugElement.componentInstance).toBeTruthy()
 		})
 
-		describe('when changes are detected', () => {
+		describe('when changes are detected and there are coins', () => {
 			let gameServiceInstance: GameService
 			// let origBars: number
 			// let origCoins: number
@@ -75,6 +75,23 @@ describe('QuesterComponent', () => {
 				it('emits minionedRefunded event', () => {
 					expect(spyMinionRefundedEmit).toHaveBeenCalledTimes(1)
 				})
+			})
+		})
+
+		describe('when changes are detected and there are no coins', () => {
+			let gameServiceInstance: GameService
+
+			beforeEach(() => {
+				gameServiceInstance = TestBed.inject(GameService)
+				gameServiceInstance.coins = 0
+				gameServiceInstance.goldBars = 0
+
+				fixture.detectChanges()
+			})
+
+			it('renders disabled heal button', () => {
+				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').textContent).toBe('Heal Minion for 3 coins and 10 XP')
+				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled').value).toBe('')
 			})
 		})
 	})
