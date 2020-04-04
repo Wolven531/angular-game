@@ -25,4 +25,17 @@ describe('LoggerService', () => {
 			expect(fixture.numLogs).toBe(1)
 		})
 	})
+
+	describe('invoke logMulti', () => {
+		beforeEach(() => {
+			fixture.logMulti(['message 1', 'message 2'])
+		})
+
+		it('updates service values', () => {
+			expect(fixture.hasLogs).toBe(true)
+			expect(fixture.logs).toEqual(['message 1\nmessage 2'])
+			expect(fixture.logsAsLines).toBe('message 1\nmessage 2')
+			expect(fixture.numLogs).toBe(1)
+		})
+	})
 })
