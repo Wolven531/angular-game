@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing'
 import { NameGeneratorService } from './name-gen.service'
 
-
 describe('NameGeneratorService', () => {
 	let fixture: NameGeneratorService
-	beforeEach(() =>
-		TestBed.configureTestingModule({}))
+
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
+		fixture = TestBed.inject(NameGeneratorService)
+	})
 
 	it('should be created', () => {
-		fixture = TestBed.inject(NameGeneratorService)
 		expect(fixture).toBeTruthy()
 	})
 

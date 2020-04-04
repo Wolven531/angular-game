@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing'
-
 import { LocStorageService } from './loc-storage.service'
 
 describe('LocStorageService', () => {
-	beforeEach(() =>
-		TestBed.configureTestingModule({}))
+	let fixture: LocStorageService
+
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
+		fixture = TestBed.inject(LocStorageService)
+	})
 
 	it('should be created', () => {
-		const service: LocStorageService = TestBed.get(LocStorageService)
-		expect(service).toBeTruthy()
+		expect(fixture).toBeTruthy()
 	})
 })
