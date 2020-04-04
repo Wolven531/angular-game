@@ -9,7 +9,7 @@
 		&.btn-heal-minion {
 			$bg-color: rgb(255, 128, 0, 0.75);
 			background-color: $bg-color;
-	
+
 			&:hover {
 				background-color: lighten($bg-color, 15%);
 			}
@@ -22,7 +22,7 @@
 		&.btn-refund-minion {
 			$bg-color: rgba(0, 170, 200, 0.75);
 			background-color: $bg-color;
-	
+
 			&:hover {
 				background-color: lighten($bg-color, 15%);
 			}
@@ -31,7 +31,7 @@
 		&.btn-start-quest {
 			$bg-color: rgba(0, 200, 0, 0.75);
 			background-color: $bg-color;
-	
+
 			&:hover {
 				background-color: lighten($bg-color, 15%);
 			}

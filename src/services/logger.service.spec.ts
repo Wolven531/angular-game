@@ -9,8 +9,12 @@ describe('LoggerService', () => {
 		fixture = TestBed.inject(LoggerService)
 	})
 
-	it('should be created', () => {
+	it('should be created w/ default values', () => {
 		expect(fixture).toBeTruthy()
+		expect(fixture.hasLogs).toBe(false)
+		expect(fixture.logs).toEqual([])
+		expect(fixture.logsAsLines).toBe('')
+		expect(fixture.numLogs).toBe(0)
 	})
 
 	describe('invoke log', () => {
@@ -23,6 +27,19 @@ describe('LoggerService', () => {
 			expect(fixture.logs).toEqual(['message 1'])
 			expect(fixture.logsAsLines).toBe('message 1')
 			expect(fixture.numLogs).toBe(1)
+		})
+
+		describe('invoke clearLogs', () => {
+			beforeEach(() => {
+				fixture.clearLogs()
+			})
+
+			it('updates service values', () => {
+				expect(fixture.hasLogs).toBe(false)
+				expect(fixture.logs).toEqual([])
+				expect(fixture.logsAsLines).toBe('')
+				expect(fixture.numLogs).toBe(0)
+			})
 		})
 	})
 
