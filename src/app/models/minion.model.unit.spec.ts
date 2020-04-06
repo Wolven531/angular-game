@@ -39,6 +39,16 @@ describe('Minion', () => {
 			expect(fixture.hitpointsRemaining).toBe(1)
 		})
 
+		describe('set name using setter', () => {
+			beforeEach(() => {
+				fixture.name = 'updated name'
+			})
+
+			it('updates name property', () => {
+				expect(fixture.name).toBe('updated name')
+			})
+		})
+
 		describe('invoke addXp', () => {
 			beforeEach(() => {
 				fixture.addXp(17)
