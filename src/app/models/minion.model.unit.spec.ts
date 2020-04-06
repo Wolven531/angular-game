@@ -47,6 +47,16 @@ describe('Minion', () => {
 			it('updates xp property', () => {
 				expect(fixture.xp).toBe(18)
 			})
+
+			describe('invoke spendXp', () => {
+				beforeEach(() => {
+					fixture.spendXp(7)
+				})
+
+				it('updates xp property', () => {
+					expect(fixture.xp).toBe(11)
+				})
+			})
 		})
 	})
 })
