@@ -56,6 +56,18 @@ describe('Minion', () => {
 				it('updates xp property', () => {
 					expect(fixture.xp).toBe(11)
 				})
+
+				describe('invoke heal', () => {
+					beforeEach(() => {
+						fixture.heal()
+					})
+
+					it('updates hpRemaining, hasTakenDamage, xp property', () => {
+						expect(fixture.hasTakenDamage).toBe(false)
+						expect(fixture.hitpointsRemaining).toBe(fixture.hitpoints)
+						expect(fixture.xp).toBe(1)
+					})
+				})
 			})
 		})
 	})
