@@ -38,5 +38,15 @@ describe('Minion', () => {
 			expect(fixture.hasTakenDamage).toBe(true)
 			expect(fixture.hitpointsRemaining).toBe(1)
 		})
+
+		describe('invoke addXp', () => {
+			beforeEach(() => {
+				fixture.addXp(17)
+			})
+
+			it('updates xp property', () => {
+				expect(fixture.xp).toBe(18)
+			})
+		})
 	})
 })
