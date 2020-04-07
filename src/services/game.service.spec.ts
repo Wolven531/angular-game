@@ -11,14 +11,14 @@ describe('GameService', () => {
 		fixture = TestBed.inject(GameService)
 	})
 
-	it('should be created w/ default values', () => {
+	it('should be created w/ defined properties', () => {
 		expect(fixture).toBeTruthy()
-		// expect(fixture.coins).toBe(0)
-		// expect(fixture.goldBars).toBe(0)
-		// expect(fixture.hasMinions).toBe(false)
-		// expect(fixture.minions).toEqual([])
-		// expect(fixture.numSoldiers).toBe(0)
-		// expect(fixture.soldierCost).toBe(5)
+		expect(fixture.coins).toBeDefined()
+		expect(fixture.goldBars).toBeDefined()
+		expect(fixture.hasMinions).toBeDefined()
+		expect(fixture.minions).toBeDefined()
+		expect(fixture.numSoldiers).toBeDefined()
+		expect(fixture.soldierCost).toBeDefined()
 	})
 
 	describe('invoke generateCoin', () => {
