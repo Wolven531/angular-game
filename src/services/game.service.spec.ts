@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing'
 import { GameService } from './game.service'
+import { LoggerService } from './logger.service'
+import { NameGeneratorService } from './name-gen.service'
 
 describe('GameService', () => {
 	let fixture: GameService
@@ -31,6 +33,32 @@ describe('GameService', () => {
 
 		it('increases coin', () => {
 			expect(fixture.coins).toBe(origCoins + 1)
+		})
+	})
+
+	describe('invoke summonMinion', () => {
+		let origCoins = 50
+		let spyAddMinion: jasmine.Spy
+		let spyGenerateName: jasmine.Spy
+		let spyLog: jasmine.Spy
+
+		beforeEach(() => {
+			const loggerService = TestBed.inject(LoggerService)
+			const nameGenService = TestBed.inject(NameGeneratorService)
+
+			fixture.coins = origCoins
+			spyAddMinion = spyOn(fixture, 'addMinion')
+			spyGenerateName = spyOn(nameGenService, 'generateName')
+			spyLog = spyOn(loggerService, 'log')
+
+			fixture.summonMinion()
+		})
+
+		it('adds new minion, logs the event, and decreases coins', () => {
+			expect(fixture.coins).toBe(origCoins - 10)
+			expect(spyAddMinion).toHaveBeenCalledTimes(1)
+			expect(spyGenerateName).toHaveBeenCalledTimes(1)
+			expect(spyLog).toHaveBeenCalledTimes(1)
 		})
 	})
 })
