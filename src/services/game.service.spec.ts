@@ -20,4 +20,17 @@ describe('GameService', () => {
 		// expect(fixture.numSoldiers).toBe(0)
 		// expect(fixture.soldierCost).toBe(5)
 	})
+
+	describe('invoke generateCoin', () => {
+		let origCoins: number
+
+		beforeEach(() => {
+			origCoins = fixture.coins
+			fixture.generateCoin()
+		})
+
+		it('increases coin', () => {
+			expect(fixture.coins).toBe(origCoins + 1)
+		})
+	})
 })
