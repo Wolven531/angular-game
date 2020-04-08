@@ -63,7 +63,7 @@ describe('GameService', () => {
 			expect(spyLog).toHaveBeenCalledTimes(1)
 		})
 
-		describe('invoke removeMinion', () => {
+		describe('invoke removeMinion (using default save param value)', () => {
 			// let origMinions: Minion[]
 			let spySaveMinions: jasmine.Spy
 
@@ -79,6 +79,23 @@ describe('GameService', () => {
 			it('updates minions collection', () => {
 				expect(spySaveMinions).toHaveBeenCalledTimes(1)
 				expect(spySaveMinions).toHaveBeenCalledWith([])
+				expect(fixture.minions).toEqual([])
+			})
+		})
+
+		describe('invoke removeMinion (using explicitly false save param value)', () => {
+			let spySaveMinions: jasmine.Spy
+
+			beforeEach(() => {
+				const locStorageService = TestBed.inject(LocStorageService)
+
+				spySaveMinions = spyOn(locStorageService, 'saveMinions')
+
+				fixture.removeMinion(0, false)
+			})
+
+			it('updates minions collection, and does not call save', () => {
+				expect(spySaveMinions).not.toHaveBeenCalled()
 				expect(fixture.minions).toEqual([])
 			})
 		})
