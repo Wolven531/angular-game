@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing'
 import { GameService } from './game.service'
 import { LoggerService } from './logger.service'
 import { NameGeneratorService } from './name-gen.service'
+import { LocStorageService } from './loc-storage.service'
+import { Minion } from '@models/minion.model'
 
 describe('GameService', () => {
 	let fixture: GameService
@@ -59,6 +61,26 @@ describe('GameService', () => {
 			expect(spyAddMinion).toHaveBeenCalledTimes(1)
 			expect(spyGenerateName).toHaveBeenCalledTimes(1)
 			expect(spyLog).toHaveBeenCalledTimes(1)
+		})
+
+		describe('invoke removeMinion', () => {
+			// let origMinions: Minion[]
+			let spySaveMinions: jasmine.Spy
+
+			beforeEach(() => {
+				const locStorageService = TestBed.inject(LocStorageService)
+
+				// origMinions = fixture.minions
+				spySaveMinions = spyOn(locStorageService, 'saveMinions')
+
+				fixture.removeMinion(0)
+			})
+
+			it('updates minions collection', () => {
+				expect(spySaveMinions).toHaveBeenCalledTimes(1)
+				expect(spySaveMinions).toHaveBeenCalledWith([])
+				expect(fixture.minions).toEqual([])
+			})
 		})
 	})
 })
