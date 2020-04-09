@@ -27,7 +27,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.53",
+  "version": "0.67.54",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
@@ -65,7 +65,7 @@
     "pre-commit": "^1.2.2",
     "protractor": "^5.4.3",
     "puppeteer": "^2.1.1",
-    "ts-node": "^8.8.1",
+    "ts-node": "^8.8.2",
     "tslint": "~5.20.1",
     "typescript": "~3.7.5"
   }
