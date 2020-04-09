@@ -4,6 +4,7 @@ import { LoggerService } from './logger.service'
 import { NameGeneratorService } from './name-gen.service'
 import { LocStorageService } from './loc-storage.service'
 import { Minion } from '@models/minion.model'
+import { not } from '@angular/compiler/src/output/output_ast'
 
 describe('GameService', () => {
 	let fixture: GameService
@@ -35,6 +36,24 @@ describe('GameService', () => {
 
 		it('increases coin', () => {
 			expect(fixture.coins).toBe(origCoins + 1)
+		})
+	})
+
+	describe('invoke addMinion', () => {
+		let spySaveMinions: jasmine.Spy
+
+		beforeEach(() => {
+			const locStorageService = TestBed.inject(LocStorageService)
+
+			spySaveMinions = spyOn(locStorageService, 'saveMinions')
+
+			fixture.addMinion(new Minion(5, 5, 5, 3, 'monster a', 5))
+		})
+
+		it('adds minion to the collection and invokes saveMinions', () => {
+			expect(spySaveMinions).toHaveBeenCalledTimes(1)
+			// expect(fixture.minions).toEqual([new Minion(5, 5, 5, 3, 'monster a', 5)])
+			expect(fixture.minions).not.toEqual([])
 		})
 	})
 
@@ -73,6 +92,8 @@ describe('GameService', () => {
 				// origMinions = fixture.minions
 				spySaveMinions = spyOn(locStorageService, 'saveMinions')
 
+				// fixture.addMinion(new Minion(5, 5, 5, 2, 'monster x', 5))
+				// expect(fixture.minions).not.toEqual([])
 				fixture.removeMinion(0)
 			})
 
@@ -91,6 +112,8 @@ describe('GameService', () => {
 
 				spySaveMinions = spyOn(locStorageService, 'saveMinions')
 
+				// fixture.summonMinion()
+				// expect(fixture.minions).not.toEqual([])
 				fixture.removeMinion(0, false)
 			})
 
@@ -99,5 +122,22 @@ describe('GameService', () => {
 				expect(fixture.minions).toEqual([])
 			})
 		})
+
+		// describe('invoke refundMinion', () => {
+		// 	// let spyRemoveMinion: jasmine.Spy
+
+		// 	beforeEach(() => {
+		// 		// spyRemoveMinion = spyOn(fixture, 'removeMinion')
+		// 		fixture.refundMinion(0)
+		// 	})
+
+		// 	it('invokes removeMinion, updates minions collection and coins', () => {
+		// 		// expect(spyRemoveMinion).toHaveBeenCalledTimes(1)
+		// 		// expect(spyRemoveMinion).toHaveBeenLastCalledWith(0)
+		// 		// expect(spyLog).toHaveBeenCalledTimes(1)
+		// 		expect(fixture.coins).toBe(48)
+		// 		expect(fixture.minions).toEqual([])
+		// 	})
+		// })
 	})
 })
