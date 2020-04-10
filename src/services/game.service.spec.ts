@@ -55,8 +55,7 @@ describe('GameService', () => {
 
 		it('adds minion to the collection and invokes saveMinions', () => {
 			expect(spySaveMinions).toHaveBeenCalledTimes(1)
-			// expect(fixture.minions).toEqual([new Minion(5, 5, 5, 3, 'monster a', 5)])
-			expect(fixture.minions).not.toEqual([])
+			expect(fixture.minions).toEqual([new Minion(5, 5, 5, 3, 'monster a', 5)])
 		})
 	})
 
