@@ -4,7 +4,6 @@ import { LoggerService } from './logger.service'
 import { NameGeneratorService } from './name-gen.service'
 import { LocStorageService } from './loc-storage.service'
 import { Minion } from '@models/minion.model'
-import { not } from '@angular/compiler/src/output/output_ast'
 
 describe('GameService', () => {
 	let fixture: GameService
@@ -13,7 +12,11 @@ describe('GameService', () => {
 		TestBed.configureTestingModule({
 			providers: [] // TODO: provide MockLocStorageService here
 		})
-		fixture = TestBed.inject(GameService)
+		fixture = new GameService(
+			TestBed.inject(LocStorageService),
+			TestBed.inject(LoggerService),
+			TestBed.inject(NameGeneratorService),
+		)
 	})
 
 	it('should be created w/ defined properties', () => {
