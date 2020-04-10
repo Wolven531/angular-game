@@ -125,21 +125,23 @@ describe('GameService', () => {
 			})
 		})
 
-		// describe('invoke refundMinion', () => {
-		// 	// let spyRemoveMinion: jasmine.Spy
+		/*
+		describe('invoke refundMinion', () => {
+			// let spyRemoveMinion: jasmine.Spy
 
-		// 	beforeEach(() => {
-		// 		// spyRemoveMinion = spyOn(fixture, 'removeMinion')
-		// 		fixture.refundMinion(0)
-		// 	})
+			beforeEach(() => {
+				// spyRemoveMinion = spyOn(fixture, 'removeMinion')
+				fixture.refundMinion(0)
+			})
 
-		// 	it('invokes removeMinion, updates minions collection and coins', () => {
-		// 		// expect(spyRemoveMinion).toHaveBeenCalledTimes(1)
-		// 		// expect(spyRemoveMinion).toHaveBeenLastCalledWith(0)
-		// 		// expect(spyLog).toHaveBeenCalledTimes(1)
-		// 		expect(fixture.coins).toBe(48)
-		// 		expect(fixture.minions).toEqual([])
-		// 	})
-		// })
+			it('invokes removeMinion, updates minions collection and coins', () => {
+				// expect(spyRemoveMinion).toHaveBeenCalledTimes(1)
+				// expect(spyRemoveMinion).toHaveBeenLastCalledWith(0)
+				// expect(spyLog).toHaveBeenCalledTimes(1)
+				// expect(fixture.coins).toBe(48)
+				expect(fixture.minions).toEqual([])
+			})
+		})
+		*/
 	})
 })
