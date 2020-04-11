@@ -6,7 +6,7 @@ describe('LocStorageService', () => {
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({})
-		fixture = TestBed.inject(LocStorageService)
+		fixture = new LocStorageService()
 	})
 
 	it('should be created', () => {
