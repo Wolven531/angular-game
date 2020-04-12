@@ -144,4 +144,17 @@ describe('GameService', () => {
 		})
 		*/
 	})
+
+	describe('retrieve soldierCost when numSoldiers equals 0', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 0
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(5)
+		})
+	})
 })
