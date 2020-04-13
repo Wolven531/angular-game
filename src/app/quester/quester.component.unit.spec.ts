@@ -93,6 +93,20 @@ describe('QuesterComponent', () => {
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').textContent).toBe('Heal Minion for 3 coins and 10 XP')
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled').value).toBe('')
 			})
+
+			describe('invoke onStartQuest', () => {
+				const questMinion = new Minion(5, 5, 5, 0, 'monster a', 0)
+
+				beforeEach(() => {
+					fixture.componentInstance.onStartQuest(questMinion)
+					fixture.detectChanges()
+				})
+
+				it('sets questTimer on quester', () => {
+					expect(fixture.componentInstance.questTimer).not.toBe(null)
+					expect(fixture.componentInstance.questTimer).not.toBeUndefined()
+				})
+			})
 		})
 	})
 })
