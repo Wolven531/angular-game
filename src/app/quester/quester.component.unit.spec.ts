@@ -96,16 +96,32 @@ describe('QuesterComponent', () => {
 
 			describe('invoke onStartQuest', () => {
 				const questMinion = new Minion(5, 5, 5, 0, 'monster a', 0)
+				let timerInstance
 
 				beforeEach(() => {
+					// jest.useFakeTimers()
 					fixture.componentInstance.onStartQuest(questMinion)
 					fixture.detectChanges()
 				})
 
 				it('sets questTimer on quester', () => {
-					expect(fixture.componentInstance.questTimer).not.toBe(null)
-					expect(fixture.componentInstance.questTimer).not.toBeUndefined()
+					timerInstance = fixture.componentInstance.questTimer
+					// clearInterval(fixture.componentInstance.questTimer)
+					expect(timerInstance).not.toBe(null)
+					expect(timerInstance).not.toBeUndefined()
 				})
+
+				// describe('invoke onStartQuest again', () => {
+				// 	beforeEach(() => {
+				// 		fixture.componentInstance.onStartQuest(questMinion)
+				// 		fixture.detectChanges()
+						
+				// 	})
+
+				// 	it('does not change questTimer on quester', () => {
+				// 		expect(fixture.componentInstance.questTimer).toEqual(timerInstance)
+				// 	})
+				// })
 			})
 		})
 	})
