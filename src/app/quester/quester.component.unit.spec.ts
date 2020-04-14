@@ -96,19 +96,22 @@ describe('QuesterComponent', () => {
 
 			describe('invoke onStartQuest', () => {
 				const questMinion = new Minion(5, 5, 5, 0, 'monster a', 0)
+				let spyQuestStarted: jasmine.Spy
 				let timerInstance
 
 				beforeEach(() => {
 					// jest.useFakeTimers()
+					spyQuestStarted = spyOn(fixture.componentInstance.questStarted, 'emit')
 					fixture.componentInstance.onStartQuest(questMinion)
 					fixture.detectChanges()
 				})
 
-				it('sets questTimer on quester', () => {
+				it('sets questTimer on quester and emits questStarted event', () => {
 					timerInstance = fixture.componentInstance.questTimer
 					// clearInterval(fixture.componentInstance.questTimer)
 					expect(timerInstance).not.toBe(null)
 					expect(timerInstance).not.toBeUndefined()
+					expect(spyQuestStarted).toHaveBeenCalledTimes(1)
 				})
 
 				// describe('invoke onStartQuest again', () => {
