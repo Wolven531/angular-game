@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing'
+import { Minion } from '@models/minion.model'
+
 import { GameService } from './game.service'
+import { LocStorageService } from './loc-storage.service'
 import { LoggerService } from './logger.service'
 import { NameGeneratorService } from './name-gen.service'
-import { LocStorageService } from './loc-storage.service'
-import { Minion } from '@models/minion.model'
 
 describe('GameService', () => {
 	let fixture: GameService
@@ -124,25 +125,6 @@ describe('GameService', () => {
 				expect(fixture.minions).toEqual([])
 			})
 		})
-
-		/*
-		describe('invoke refundMinion', () => {
-			// let spyRemoveMinion: jasmine.Spy
-
-			beforeEach(() => {
-				// spyRemoveMinion = spyOn(fixture, 'removeMinion')
-				fixture.refundMinion(0)
-			})
-
-			it('invokes removeMinion, updates minions collection and coins', () => {
-				// expect(spyRemoveMinion).toHaveBeenCalledTimes(1)
-				// expect(spyRemoveMinion).toHaveBeenLastCalledWith(0)
-				// expect(spyLog).toHaveBeenCalledTimes(1)
-				// expect(fixture.coins).toBe(48)
-				expect(fixture.minions).toEqual([])
-			})
-		})
-		*/
 	})
 
 	describe('retrieve soldierCost when numSoldiers equals 0', () => {
@@ -155,6 +137,26 @@ describe('GameService', () => {
 
 		it('returns proper cost', () => {
 			expect(returnedCost).toBe(5)
+		})
+	})
+
+	describe('when there is a minion and it is refunded', () => {
+		// let spyRemoveMinion: jasmine.Spy
+		// let spyRemoveMinion: jest.SpyInstance
+
+		beforeEach(() => {
+			// spyRemoveMinion = spyOn(fixture, 'removeMinion')
+			// spyRemoveMinion = jest.spyOn(fixture, 'removeMinion')
+			fixture.addMinion(new Minion(7, 7, 7, 0, 'mon x', 0))
+			fixture.refundMinion(0)
+		})
+
+		it('invokes removeMinion, updates minions collection and coins', () => {
+			// expect(spyRemoveMinion).toHaveBeenCalledTimes(1)
+			// expect(spyRemoveMinion).toHaveBeenLastCalledWith(0)
+			// expect(spyLog).toHaveBeenCalledTimes(1)
+			// expect(fixture.coins).toBe(48)
+			expect(fixture.minions).toEqual([])
 		})
 	})
 })
