@@ -140,6 +140,71 @@ describe('GameService', () => {
 		})
 	})
 
+	describe('retrieve soldierCost when numSoldiers equals 1', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 1
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(20)
+		})
+	})
+
+	describe('retrieve soldierCost when numSoldiers equals 2', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 2
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(100)
+		})
+	})
+
+	describe('retrieve soldierCost when numSoldiers equals 3', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 3
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(250)
+		})
+	})
+
+	describe('retrieve soldierCost when numSoldiers equals 4', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 4
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(500)
+		})
+	})
+
+	describe('retrieve soldierCost when numSoldiers equals 10', () => {
+		let returnedCost: number
+
+		beforeEach(() => {
+			fixture.numSoldiers = 10
+			returnedCost = fixture.soldierCost
+		})
+
+		it('returns proper cost', () => {
+			expect(returnedCost).toBe(5500)
+		})
+	})
+
 	describe('when there is a minion and it is refunded', () => {
 		// let spyRemoveMinion: jasmine.Spy
 		// let spyRemoveMinion: jest.SpyInstance
