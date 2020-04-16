@@ -16,10 +16,10 @@ module.exports = function (config) {
 			fixWebpackSourcePaths: true,
 			reports: ['html', 'lcovonly', 'text-summary'],
 			thresholds: {
-				branches: 75,
-				functions: 90,
-				lines: 80,
-				statements: 80
+				branches: 85,
+				functions: 95,
+				lines: 85,
+				statements: 85
 			}
 		},
 		customLaunchers: {
