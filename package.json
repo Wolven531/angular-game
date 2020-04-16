@@ -27,7 +27,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.73",
+  "version": "0.67.74",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
@@ -58,7 +58,7 @@
     "eslint": "^6.8.0",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^5.0.1",
-    "karma": "^4.4.1",
+    "karma": "^5.0.2",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "^3.1.1",
