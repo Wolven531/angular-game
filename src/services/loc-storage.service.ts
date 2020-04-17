@@ -19,6 +19,16 @@ export class LocStorageService {
 	public static STARTING_GOLD_BARS = 0
 	public static STARTING_NUM_SOLDIERS = 0
 
+	public static parseMinionJSON = minObj =>
+		new Minion(
+			minObj._attack,
+			minObj._defense,
+			minObj._hp,
+			minObj._damageTaken,
+			minObj._name,
+			minObj._xpEarned,
+		)
+
 	private KEY_COINS = 'coins'
 	private KEY_GOLD_BARS = 'goldBars'
 	private KEY_MINIONS = 'minions'
@@ -48,15 +58,7 @@ export class LocStorageService {
 		}
 
 		const minionObjArr: any[] = JSON.parse(loadedMinions)
-		const minions: Minion[] = minionObjArr.map(minObj =>
-			new Minion(
-				minObj._attack,
-				minObj._defense,
-				minObj._hp,
-				minObj._damageTaken,
-				minObj._name,
-				minObj._xpEarned,
-			))
+		const minions: Minion[] = minionObjArr.map(LocStorageService.parseMinionJSON)
 		return minions
 	}
 
