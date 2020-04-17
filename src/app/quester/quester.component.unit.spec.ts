@@ -94,7 +94,7 @@ describe('QuesterComponent', () => {
 				expect(compiled.querySelector('.quester-container > button.btn-heal-minion').getAttributeNode('disabled').value).toBe('')
 			})
 
-			describe('invoke onStartQuest', () => {
+			describe('invoke onStartQuest when no timer exists', () => {
 				const questMinion = new Minion(5, 5, 5, 0, 'monster a', 0)
 				let spyQuestStarted: jasmine.Spy
 				let timerInstance
@@ -125,6 +125,22 @@ describe('QuesterComponent', () => {
 				// 		expect(fixture.componentInstance.questTimer).toEqual(timerInstance)
 				// 	})
 				// })
+			})
+
+			describe('invoke onStartQuest when timer exists', () => {
+				let spyQuestStarted: jasmine.Spy
+
+				beforeEach(() => {
+					spyQuestStarted = spyOn(fixture.componentInstance.questStarted, 'emit')
+
+					fixture.componentInstance.questTimer = {}
+					fixture.componentInstance.onStartQuest(new Minion(5, 5, 5, 0, 'monster b', 0))
+					fixture.detectChanges()
+				})
+
+				it('does not emit questStarted event', () => {
+					expect(spyQuestStarted).not.toHaveBeenCalled()
+				})
 			})
 		})
 	})
