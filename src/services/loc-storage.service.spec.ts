@@ -14,6 +14,35 @@ describe('LocStorageService', () => {
 		expect(fixture).toBeTruthy()
 	})
 
+	describe('when window.localStorage.getItem returns null', () => {
+		let origGetItem
+
+		beforeEach(() => {
+			origGetItem = window.localStorage.getItem
+			window.localStorage.getItem = () => null
+		})
+
+		it('loads default value for coins', () => {
+			expect(fixture.loadCoins()).toBe(LocStorageService.STARTING_COINS)
+		})
+
+		it('loads default value for gold bars', () => {
+			expect(fixture.loadGoldBars()).toBe(LocStorageService.STARTING_GOLD_BARS)
+		})
+
+		it('loads default value for num soldiers', () => {
+			expect(fixture.loadNumSoldiers()).toBe(LocStorageService.STARTING_NUM_SOLDIERS)
+		})
+
+		it('loads default value for minions', () => {
+			expect(fixture.loadMinions()).toEqual([])
+		})
+
+		afterEach(() => {
+			window.localStorage.getItem = origGetItem
+		})
+	})
+
 	describe('invoke saveMinions w/ empty array', () => {
 		let spySetItem: jasmine.Spy
 
