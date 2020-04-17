@@ -14,6 +14,25 @@ describe('LocStorageService', () => {
 		expect(fixture).toBeTruthy()
 	})
 
+	describe('using static parseMinionJSON', () => {
+		let parsedMinion: Minion
+
+		beforeEach(() => {
+			parsedMinion = LocStorageService.parseMinionJSON({
+				_attack: 7,
+				_defense: 6,
+				_hp: 5,
+				_damageTaken: 4,
+				_name: 'loaded minion',
+				_xpEarned: 3,
+			})
+		})
+
+		it('properly parses minion JSON object into Minion instance', () => {
+			expect(parsedMinion).toEqual(new Minion(7, 6, 5, 4, 'loaded minion', 3))
+		})
+	})
+
 	describe('when window.localStorage.getItem returns null', () => {
 		let origGetItem
 
