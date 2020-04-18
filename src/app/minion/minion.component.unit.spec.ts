@@ -1,10 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { MinionComponent } from './minion.component'
+import { GameService } from '@services/game.service'
+import { LocStorageService } from '@services/loc-storage.service'
+import { NameGeneratorService } from '@services/name-gen.service'
+import { LoggerService } from '@services/logger.service'
 
 describe('MinionComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [ MinionComponent ]
+			declarations: [ MinionComponent ],
+			providers: [
+				new GameService(
+					TestBed.inject(LocStorageService),
+					TestBed.inject(LoggerService),
+					TestBed.inject(NameGeneratorService)
+				)
+			]
 		})
 			.compileComponents()
 	}))
