@@ -1,12 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { Minion } from '@models/minion.model'
 import { GameService } from '@services/game.service'
+// import { LocStorageService } from '@services/loc-storage.service'
+// import { LoggerService } from '@services/logger.service'
+// import { NameGeneratorService } from '@services/name-gen.service'
 import { QuesterComponent } from './quester.component'
 
 describe('QuesterComponent', () => {
 	beforeEach(async(() => {
+		// const locS = new LocStorageService()
+		// const logS = new LoggerService()
+		// const nameS = new NameGeneratorService()
+		// const gameS = new GameService(locS, logS, nameS)
+
 		TestBed.configureTestingModule({
-			declarations: [ QuesterComponent ]
+			declarations: [ QuesterComponent ],
+			// providers: [
+			// 	{ provide: LocStorageService, useClass: LocStorageService },
+			// 	{ provide: LoggerService, useClass: LoggerService },
+			// 	{ provide: NameGeneratorService, useClass: NameGeneratorService },
+			// 	{ provide: GameService, useClass: GameService },
+			// ]
 		})
 			.compileComponents()
 	}))

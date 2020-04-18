@@ -2,11 +2,25 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { GameService } from '@services/game.service'
 import { LoggerService } from '@services/logger.service'
 import { GameComponent } from './game.component'
+// import { LocStorageService } from '@services/loc-storage.service'
+// import { NameGeneratorService } from '@services/name-gen.service'
 
 describe('GameComponent', () => {
 	beforeEach(async(() => {
+		// const locS = new LocStorageService()
+		// const logS = new LoggerService()
+		// const nameS = new NameGeneratorService()
+		// const gameS = new GameService(locS, logS, nameS)
+
 		TestBed.configureTestingModule({
-			declarations: [ GameComponent ]
+			declarations: [ GameComponent ],
+			// providers: [ gameS, logS ]
+			// providers: [
+			// 	{ provide: LocStorageService, useClass: LocStorageService },
+			// 	{ provide: LoggerService, useClass: LoggerService },
+			// 	{ provide: NameGeneratorService, useClass: NameGeneratorService },
+			// 	{ provide: GameService, useClass: GameService },
+			// ]
 		})
 			.compileComponents()
 	}))
