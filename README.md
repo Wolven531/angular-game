@@ -22,8 +22,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running tests
 
-* Run `ng test` to execute unit tests via [Karma](https://karma-runner.github.io)
+* Run `npm test` to execute unit tests via [Karma](https://karma-runner.github.io)
+* Run `npm run test:coverage` to execute unit tests and generate a coverage report (at `<rootDir>/coverage/`)
+* Run `npm run test:watch` to execute unit tests while watching for file changes
 * Run `ng e2e` to execute end-to-end tests via [Protractor](http://www.protractortest.org/)
+* Attempting to use jest (started on April 17, 2020) using [this guide](https://itnext.io/how-to-use-jest-in-angular-aka-make-unit-testing-great-again-e4be2d2e92d1)
 
 ## Tips
 
