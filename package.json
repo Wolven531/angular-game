@@ -5,8 +5,12 @@
     "url": "https://github.com/Wolven531/angular-game.git"
   },
   "jest": {
+    "moduleNameMapper": {
+      "^@models/(.*)$": "<rootDir>/src/app/models/$1",
+      "^@services/(.*)$": "<rootDir>/src/services/$1"
+    },
     "preset": "jest-preset-angular",
-    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.ts"
+    "setupFilesAfterEnv": ["<rootDir>/setupJest.ts"]
   },
   "name": "angular-game",
   "private": true,
@@ -34,7 +38,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.81",
+  "version": "0.67.82",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
