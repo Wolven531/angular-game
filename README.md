@@ -42,6 +42,7 @@ To update angular dependencies, run: `npm i -g @angular/cli` then `npx ng update
 * More items in the shop
 * Minion level up
 * Export / import save data (for transferring across machines)
+* Get Docker setup working
 * More resources (maybe...)
 
 © Anthony Williams 2020
