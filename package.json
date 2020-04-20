@@ -13,7 +13,7 @@
     "setupFilesAfterEnv": ["<rootDir>/setupJest.ts"]
   },
   "name": "angular-game",
-  "private": true,
+  "private": false,
   "pre-commit": [
     "version:bump",
     "version:addPackage"
@@ -38,7 +38,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.86",
+  "version": "0.67.87",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
