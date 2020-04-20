@@ -10,7 +10,9 @@
       "^@services/(.*)$": "<rootDir>/src/services/$1"
     },
     "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": ["<rootDir>/setupJest.ts"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupJest.ts"
+    ]
   },
   "name": "angular-game",
   "private": false,
@@ -38,7 +40,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.87",
+  "version": "0.67.88",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
@@ -69,7 +71,7 @@
     "eslint": "^6.8.0",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^5.0.1",
-    "jest": "^25.3.0",
+    "jest": "^25.4.0",
     "jest-preset-angular": "^8.1.3",
     "karma": "^5.0.2",
     "karma-chrome-launcher": "^3.1.0",
