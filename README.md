@@ -37,4 +37,11 @@ To update angular dependencies, run: `npm i -g @angular/cli` then `npx ng update
 * Docker for Windows (or Docker for Mac) - [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/)
   * Alternatively, Docker Toolbox (if you are not on Win 10 Pro / Enterprise) - [here](https://github.com/docker/toolbox/releases)
 
+## To-do
+
+* More items in the shop
+* Minion level up
+* Export / import save data (for transferring across machines)
+* More resources (maybe...)
+
 © Anthony Williams 2020
