@@ -40,7 +40,7 @@
     "version:addPackage": "git add ./package.json",
     "version:bump": "node ./bumpVersion.js patch"
   },
-  "version": "0.67.90",
+  "version": "0.67.91",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
@@ -63,10 +63,10 @@
     "@types/jasmine": "^3.5.10",
     "@types/jasminewd2": "^2.0.8",
     "@types/jest": "^22.2.3",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^13.9.8",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.1",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "codelyzer": "^5.2.2",
     "eslint": "^6.8.0",
     "jasmine-core": "^3.5.0",
